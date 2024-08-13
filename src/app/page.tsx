@@ -11,6 +11,7 @@ export default function Home() {
 					<br />
 					Wat zou je graag willen weten?
 				</h2>
+
 				<span className="block text-base text-neutral-mid">Gebruik een van de standaard vragen of formuleer zelf een vraag</span>
 			</div>
 		</main>
