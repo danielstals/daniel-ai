@@ -2,6 +2,7 @@ import { Header } from '@/components/Header';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import Providers from './providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,11 +19,13 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={`${inter.className} antialiased`}>
-				<main className="flex flex-col w-screen h-screen py-8 sm:py-12 px-6 sm:px-12 md:px-24">
-					<Header title="Daniel.ai" />
+				<Providers>
+					<main className="flex flex-col w-screen h-screen py-8 sm:py-12 px-6 sm:px-12 md:px-24">
+						<Header title="Daniel.ai" />
 
-					{children}
-				</main>
+						{children}
+					</main>
+				</Providers>
 			</body>
 		</html>
 	);

@@ -1,11 +1,8 @@
-import type { LottieComponentProps } from 'lottie-react';
-import dynamic from 'next/dynamic';
-import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { type LottieComponentProps } from 'lottie-react';
+import { Suspense, lazy } from 'react';
 
-const LazyLottieComponent = dynamic(() => import('lottie-react'), {
-	ssr: false,
-	//   loading: ({ height, width }) => <Skeleton height={height} width={width} />,
-});
+const LazyLottieComponent = lazy(() => import('lottie-react'));
 
 interface LottieProps<T extends Record<string, unknown>> {
 	getAnimationData: () => Promise<T>;
@@ -15,27 +12,24 @@ interface LottieProps<T extends Record<string, unknown>> {
 export function LazyLottie<T extends Record<string, unknown>>({
 	getAnimationData,
 	id,
+	ref,
 	...props
 }: LottieProps<T> & Omit<LottieComponentProps, 'animationData'>) {
-	const [data, setData] = useState<T | null>(null);
+	const { data } = useQuery({
+		queryKey: [id],
+		queryFn: async () => {
+			void import('lottie-react'); // Trigger the library lazy load even if the animationData is not ready
+			return getAnimationData();
+		},
+		enabled: typeof window !== 'undefined',
+	});
 
-	useEffect(() => {
-		let isMounted = true;
+	// Only render the Lottie component if data is available
+	if (!data) return null;
 
-		getAnimationData().then((animationData) => {
-			if (isMounted) {
-				setData(animationData);
-			}
-		});
-
-		return () => {
-			isMounted = false;
-		};
-	}, [getAnimationData]);
-
-	if (!data) {
-		return;
-	}
-
-	return <LazyLottieComponent animationData={data} {...props} />;
+	return (
+		<Suspense>
+			<LazyLottieComponent animationData={data} {...props} />
+		</Suspense>
+	);
 }
