@@ -2,7 +2,7 @@ import { cva, VariantProps } from 'class-variance-authority';
 import React, { cloneElement, forwardRef } from 'react';
 
 const styleOptions = cva(
-	'group flex flex-col justify-between w-[200px] h-[150px] bg-white rounded-md text-left p-3 border-solid border border-neutral-light hover:border-accent transition duration-200',
+	'group flex flex-col justify-between h-[150px] bg-white rounded-md text-left p-3 border-solid border border-neutral-light hover:border-accent transition duration-200',
 	{
 		variants: {
 			variant: {
