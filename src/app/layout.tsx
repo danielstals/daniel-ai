@@ -20,10 +20,10 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={`${inter.className} antialiased`}>
 				<Providers>
-					<main className="flex flex-col w-screen h-screen py-8 sm:py-12 px-6 sm:px-12 md:px-24">
+					<main className="flex flex-col h-screen py-8 sm:py-12 px-6 sm:px-12 md:px-24">
 						<Header title="Daniel.ai" />
 
-						{children}
+						<div className="flex flex-col pb-8">{children}</div>
 					</main>
 				</Providers>
 			</body>
