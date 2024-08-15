@@ -5,7 +5,7 @@ const config: Config = {
 	theme: {
 		extend: {
 			colors: {
-				accent: {
+				primary: {
 					DEFAULT: '#635bff',
 				},
 				neutral: {

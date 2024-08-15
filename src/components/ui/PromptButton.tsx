@@ -2,7 +2,7 @@ import { cva, VariantProps } from 'class-variance-authority';
 import React, { cloneElement, forwardRef } from 'react';
 
 const styleOptions = cva(
-	'group flex flex-col justify-between h-[150px] bg-white rounded-md text-left p-3 border-solid border border-neutral-light hover:border-accent transition duration-200',
+	'group flex flex-col justify-between h-[150px] bg-white rounded-md text-left p-3 border-solid border border-neutral-light hover:border-primary transition duration-200',
 	{
 		variants: {
 			variant: {
@@ -22,13 +22,13 @@ interface IPromptButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 export const PromptButton = forwardRef<HTMLButtonElement, IPromptButtonProps>(function PromptButton(
-	{ text, icon, className, isDisabled, ...inputParams }: IPromptButtonProps,
+	{ text, icon, className, onClick, isDisabled, ...inputParams }: IPromptButtonProps,
 	ref
 ) {
 	return (
-		<button className={styleOptions({ className })} disabled={isDisabled} ref={ref} {...inputParams}>
-			<span className="text-sm transition duration-200 group-hover:text-accent">{text}</span>
-			{cloneElement(icon, { className: 'text-neutral-mid transition duration-200 group-hover:text-accent' })}
+		<button onClick={onClick} className={styleOptions({ className })} disabled={isDisabled} ref={ref} {...inputParams}>
+			<span className='text-sm transition duration-200 group-hover:text-primary'>{text}</span>
+			{cloneElement(icon, { className: 'text-neutral-mid transition duration-200 group-hover:text-primary' })}
 		</button>
 	);
 });
