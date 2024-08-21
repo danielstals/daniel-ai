@@ -32,7 +32,7 @@ const suggestedPrompts: IPromptSuggestion[] = [
 export function PromptSuggestions({ className, onClick }: IPromptSuggestionsProps) {
 	return (
 		<div className={styleOptions({ className })}>
-			{suggestedPrompts.map((prompt, index) => (
+			{suggestedPrompts.map((prompt: IPromptSuggestion, index: number) => (
 				<PromptButton onClick={() => onClick(prompt.text)} key={index} text={prompt.text} icon={prompt.icon} />
 			))}
 		</div>
