@@ -1,89 +1,167 @@
 'use client';
 
-import { useEffect } from 'react';
+import { cn } from '@/lib/utils';
+import { ChatRequestOptions, Message } from 'ai';
+import { useChat } from 'ai/react';
+import { Bot, Trash } from 'lucide-react';
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { Button } from '../ui/Button';
-import { useToast } from '../ui/use-toast';
+import { ChatMessage } from './ChatMessage';
 import { PromptSuggestions } from './PromptSuggestions';
 
-import { Message, useChat } from 'ai/react';
-
 export function ChatContainer(): JSX.Element {
-	const { messages, input, handleInputChange, handleSubmit } = useChat({
-		maxToolRoundtrips: 2,
-	});
+	const { input, setInput, handleInputChange, handleSubmit, messages, setMessages, isLoading, error } = useChat({ initialMessages: [] });
 
-	const { toast } = useToast();
+	const [isOpen, setIsOpen] = useState<boolean>(() => !!messages.length);
 
-	// const [messages, setMessages] = useState<CoreMessage[]>([]);
-	// const [input, setInput] = useState('');
+	const lastMessageIsUser = messages[messages.length - 1]?.role === 'user';
 
-	useEffect(() => {
-		console.log('messages', messages);
-	}, [messages]);
+	const inputRef = useRef<HTMLInputElement>(null);
+	const scrollRef = useRef<HTMLDivElement>(null);
 
 	function setSuggestedPromptHandler(suggestedPrompt: string): void {
-		// setInput(suggestedPrompt);
+		setInput(suggestedPrompt);
+		inputRef.current?.focus();
+
+		if (!isOpen) {
+			setIsOpen(true);
+		}
 	}
 
-	async function sendPromptHandler(): Promise<void> {
-		// const result = await sendPrompt(input);
-		// console.log('result', result);
+	function submitHandler(
+		event?: {
+			preventDefault?: () => void;
+		},
+		chatRequestOptions?: ChatRequestOptions
+	): void {
+		event?.preventDefault?.();
+
+		if (!isOpen && input.length) {
+			setIsOpen(true);
+		}
+
+		handleSubmit(event, chatRequestOptions);
 	}
 
-	// async function onSubmitHandler(e: React.FormEvent<HTMLFormElement>): Promise<void> {
-	// 	e.preventDefault();
-	// 	const newMessages: CoreMessage[] = [...messages, { content: input, role: 'user' }];
+	function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>): void {
+		if (isOpen && event.key === 'Escape' && !messages.length) {
+			setIsOpen(false);
+			setInput('');
+		}
+	}
 
-	// 	setMessages(newMessages);
-	// 	setInput('');
+	useEffect(() => {
+		if (!isOpen && input.length) {
+			setIsOpen(true);
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [input]);
 
-	// 	const result = await continueConversation(newMessages);
-
-	// 	for await (const content of readStreamableValue(result)) {
-	// 		setMessages([
-	// 			...newMessages,
-	// 			{
-	// 				role: 'assistant',
-	// 				content: content as string,
-	// 			},
-	// 		]);
-	// 	}
-	// }
+	useEffect(() => {
+		if (scrollRef.current) {
+			scrollRef.current.scrollTo({
+				top: scrollRef.current.scrollHeight,
+				behavior: 'smooth',
+			});
+		}
+	}, [messages]);
 
 	return (
 		<>
 			<PromptSuggestions className='mb-5' onClick={setSuggestedPromptHandler} />
 
-			<div className='space-y-4'>
-				{messages.map((m: Message) => (
-					<div key={m.id} className='whitespace-pre-wrap'>
-						<div>
-							<div className='font-bold'>{m.role}</div>
-							<p>
-								{m.content.length > 0 ? (
-									m.content
-								) : (
-									<span className='italic font-light'>{'calling tool: ' + m?.toolInvocations?.[0].toolName}</span>
-								)}
-							</p>
-						</div>
+			<form
+				className={cn(
+					'flex flex-col bg-background overflow-hidden relative w-full rounded-md shadow transition-height duration-200',
+					isOpen ? 'h-[400px]' : 'h-[60px]'
+				)}
+				onSubmit={submitHandler}
+				onClick={() => inputRef.current?.focus()}
+			>
+				{!error && messages.length === 0 && (
+					<div
+						className={cn(
+							'absolute top-24 left-0 right-0 flex flex-col items-center justify-center gap-3 text-center mx-8 transition duration-200',
+							isOpen ? 'visible' : 'hidden'
+						)}
+					>
+						<Bot />
+						<p className='text-lg font-medium'>Stuur een bericht om de AI chat te starten!</p>
+						<p>Je kunt de chatbot vragen stellen over mijn werk, projecten, technologieën, ervaringen, enzovoort. Probeer het eens!</p>
+						<p className='text-sm text-muted-foreground'>
+							Je mag natuurlijk ook gewoon mijn{' '}
+							<Link className='text-primary hover:underline' target='_blank' href='https://www.linkedin.com/in/danielstals/'>
+								LinkedIn profiel
+							</Link>{' '}
+							bezoeken.
+						</p>
 					</div>
-				))}
-			</div>
+				)}
+				<div
+					className={cn(
+						'flex flex-col flex-1 p-5 rounded-tl-md rounded-tr-md  overflow-auto',
+						isOpen ? 'visible border-b border-b-solid' : 'hidden'
+					)}
+					ref={scrollRef}
+				>
+					{messages?.map((message: Message, index: number) => (
+						<ChatMessage key={index} message={message} />
+					))}
+					{isLoading && lastMessageIsUser && (
+						<ChatMessage
+							message={{
+								id: 'loading',
+								role: 'assistant',
+								content: 'Even geduld a.u.b...',
+							}}
+						/>
+					)}
+					{error && (
+						<ChatMessage
+							message={{
+								id: 'error',
+								role: 'assistant',
+								content: 'Er is iets fout gegaan. Probeer het opnieuw.',
+							}}
+						/>
+					)}
+				</div>
 
-			<form className='relative w-full rounded-md shadow' onSubmit={handleSubmit}>
-				<input
-					value={input}
-					onChange={handleInputChange}
-					className='w-full p-4 rounded-md outline-none focus:border-primary'
-					type='text'
-					placeholder='Stel me een vraag...'
-				/>
+				<div className={cn('relative flex', isOpen ? 'h-auto' : 'h-[60px]')}>
+					<Button
+						variant='transparent'
+						type='button'
+						title='Reset de chat'
+						className='h-auto items-center justify-center hover:text-primary'
+						onClick={(e) => {
+							e.preventDefault();
+							setMessages([]);
+						}}
+					>
+						<Trash size={18} />
+					</Button>
+					<input
+						value={input}
+						onChange={handleInputChange}
+						onFocus={() => setIsOpen(true)}
+						onKeyDown={handleKeyDown}
+						className='w-full p-4 rounded-bl-md rounded-br-md outline-none focus:border-primary'
+						type='text'
+						placeholder='Stel me een vraag...'
+						ref={inputRef}
+					/>
 
-				<Button isDisabled={!input} className='absolute items-center justify-center -translate-y-1/2 right-3 top-1/2'>
-					<FaArrowRight color='white' />
-				</Button>
+					<Button
+						type='submit'
+						title='Stuur je vraag'
+						isDisabled={!input}
+						className='absolute items-center justify-center -translate-y-1/2 right-3 top-1/2'
+					>
+						<FaArrowRight color='white' />
+					</Button>
+				</div>
 			</form>
 		</>
 	);
