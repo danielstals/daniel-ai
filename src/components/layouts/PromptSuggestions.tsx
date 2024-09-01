@@ -1,8 +1,9 @@
 import { cva } from 'class-variance-authority';
 import { CiLaptop, CiMail, CiUser } from 'react-icons/ci';
 import { PromptButton } from '../ui/PromptButton';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../ui/carousel';
 
-const styleOptions = cva('max-w-[650px] grid grid-cols-1 md:grid-cols-3 gap-4');
+const styleOptions = cva('max-w-[650px]');
 
 interface IPromptSuggestionsProps {
 	onClick: (suggestedPrompt: string) => void;
@@ -32,9 +33,25 @@ const suggestedPrompts: IPromptSuggestion[] = [
 export function PromptSuggestions({ className, onClick }: IPromptSuggestionsProps) {
 	return (
 		<div className={styleOptions({ className })}>
-			{suggestedPrompts.map((prompt: IPromptSuggestion, index: number) => (
-				<PromptButton onClick={() => onClick(prompt.text)} key={index} text={prompt.text} icon={prompt.icon} />
-			))}
+			{/* Carousel for mobile screens only */}
+			<Carousel className='sm:hidden'>
+				<CarouselContent>
+					{suggestedPrompts.map((prompt: IPromptSuggestion, index: number) => (
+						<CarouselItem className='flex' key={index}>
+							<PromptButton className='flex-1' onClick={() => onClick(prompt.text)} text={prompt.text} icon={prompt.icon} />
+						</CarouselItem>
+					))}
+				</CarouselContent>
+				<CarouselPrevious className='left-2 bottom-2 top-[unset] translate-y-[unset]' />
+				<CarouselNext className='right-2 bottom-2 top-[unset] translate-y-[unset]' />
+			</Carousel>
+
+			{/* Grid for desktop screens only */}
+			<div className='hidden sm:grid grid-cols-3 gap-4'>
+				{suggestedPrompts.map((prompt: IPromptSuggestion, index: number) => (
+					<PromptButton key={index} onClick={() => onClick(prompt.text)} text={prompt.text} icon={prompt.icon} />
+				))}
+			</div>
 		</div>
 	);
 }

@@ -15,7 +15,7 @@ export function ChatMessage({ message: { role, content } }: ChatMessageProps): J
 
 	return (
 		<div className={cn('mb-3 flex items-center', isAiMessage ? 'justify-start' : 'justify-end')}>
-			{isAiMessage && <Bot className='mr-2 flex-none' />}
+			{isAiMessage && <Bot className='flex-none mr-2' />}
 			<div
 				className={cn(
 					'rounded-md border px-3 py-2',
@@ -23,12 +23,13 @@ export function ChatMessage({ message: { role, content } }: ChatMessageProps): J
 				)}
 			>
 				<ReactMarkdown
+					className='text-sm sm:text-base'
 					components={{
 						a: ({ node, ref, ...props }) => (
 							<Link target='_blank' {...props} href={props.href ?? ''} className='text-primary hover:underline' />
 						),
 						p: ({ node, ...props }) => <p {...props} className='mt-3 first:mt-0' />,
-						ul: ({ node, ...props }) => <ul {...props} className='mt-3 list-inside list-disc first:mt-0' />,
+						ul: ({ node, ...props }) => <ul {...props} className='mt-3 list-disc list-inside first:mt-0' />,
 						li: ({ node, ...props }) => <li {...props} className='mt-1' />,
 					}}
 				>

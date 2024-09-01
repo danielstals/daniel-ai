@@ -18,13 +18,13 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang='en' suppressHydrationWarning>
-			<body className={`${inter.className} antialiased`}>
+		<html className='h-full' lang='en' suppressHydrationWarning>
+			<body className={`${inter.className} antialiased h-full m-0`}>
 				<Providers>
-					<main className='flex flex-col h-screen py-8 sm:py-12 px-6 sm:px-12 md:px-24'>
+					<main className='flex flex-col h-full px-6 py-8 overflow-y-hidden sm:pt-8 sm:pb-6 sm:px-12 md:px-24'>
 						<Header title='Daniel.ai' />
 
-						<div className='flex flex-col pb-8'>{children}</div>
+						{children}
 
 						<Toaster />
 					</main>

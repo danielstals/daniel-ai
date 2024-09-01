@@ -15,7 +15,15 @@ export function middleware(req: NextRequest) {
 			return NextResponse.redirect(url);
 		}
 	}
-	return NextResponse.next();
+
+	const res = NextResponse.next();
+	const cookie = req.cookies.get('sessionId');
+
+	if (!cookie) {
+		res.cookies.set('sessionId', crypto.randomUUID());
+	}
+
+	return res;
 }
 
 export const config = {
