@@ -9,6 +9,7 @@ const ratelimit = new Ratelimit({
 	ephemeralCache: new Map(),
 	prefix: 'ip-ratelimit',
 	analytics: true,
+	enableProtection: true,
 });
 
 export async function middleware(req: NextRequest, context: NextFetchEvent) {

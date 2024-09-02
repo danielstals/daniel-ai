@@ -20,6 +20,7 @@ export const ragChat = new RAGChat({
 		ephemeralCache: cache,
 		prefix: 'daniel-ai-ratelimit',
 		analytics: true,
+		enableProtection: true,
 	}),
 	promptFn: ({ question, chatHistory, context }) => {
 		return `You are a friendly AI assistant augmented with an Upstash Vector Store.
