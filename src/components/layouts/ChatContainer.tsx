@@ -1,12 +1,14 @@
 'use client';
 
+import { deleteHistory } from '@/app/actions/delete-history';
+import { ChatError } from '@/lib/models/chat-error';
 import { cn } from '@/lib/utils';
 import { ChatRequestOptions, Message } from 'ai';
 import { useChat } from 'ai/react';
-import { Bot, Trash } from 'lucide-react';
-import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { Trash } from 'lucide-react';
+import { MouseEvent, useEffect, useRef, useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
+import { ChatPlaceholder } from '../ui/ChatPlaceholder';
 import { DsButton } from '../ui/DsButton';
 import { ChatMessage } from './ChatMessage';
 import { PromptSuggestions } from './PromptSuggestions';
@@ -23,6 +25,7 @@ export function ChatContainer({ sessionId, initialMessages }: IChatContainerProp
 	});
 
 	const [isOpen, setIsOpen] = useState<boolean>(() => !!messages.length);
+	const [chatError, setChatError] = useState<ChatError | null>(null);
 
 	const lastMessageIsUser = messages[messages.length - 1]?.role === 'user';
 
@@ -50,13 +53,26 @@ export function ChatContainer({ sessionId, initialMessages }: IChatContainerProp
 			setIsOpen(true);
 		}
 
-		handleSubmit(event, chatRequestOptions);
+		if (!isLoading) {
+			handleSubmit(event, chatRequestOptions);
+		}
 	}
 
 	function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>): void {
 		if (isOpen && event.key === 'Escape' && !messages.length) {
 			setIsOpen(false);
 			setInput('');
+		}
+	}
+
+	async function deleteHistoryHandler(e: MouseEvent): Promise<void> {
+		e.preventDefault();
+		setMessages([]);
+
+		try {
+			await deleteHistory({ sessionId });
+		} catch (error) {
+			console.error(error);
 		}
 	}
 
@@ -74,7 +90,16 @@ export function ChatContainer({ sessionId, initialMessages }: IChatContainerProp
 				behavior: 'smooth',
 			});
 		}
-	}, [messages]);
+	}, [messages, chatError]);
+
+	useEffect(() => {
+		if (error) {
+			const chatError: ChatError = JSON.parse(error.message);
+			setChatError(chatError);
+		} else {
+			setChatError(null);
+		}
+	}, [error]);
 
 	return (
 		<div className='flex flex-col overflow-y-hidden max-sm:flex-grow'>
@@ -95,27 +120,7 @@ export function ChatContainer({ sessionId, initialMessages }: IChatContainerProp
 					)}
 					ref={scrollRef}
 				>
-					{!error && messages.length === 0 && (
-						<div
-							className={cn(
-								'flex flex-col items-center flex-grow justify-center gap-3 text-center mx-8 transition duration-200',
-								isOpen ? 'visible' : 'hidden'
-							)}
-						>
-							<Bot />
-							<p className='font-medium text-foreground text-md sm:text-lg'>Stuur een bericht om de AI chat te starten!</p>
-							<p className='text-sm text-foreground sm:text-md'>
-								Je kunt de chatbot vragen stellen over mijn werk, projecten, technologieën, ervaringen, enzovoort. Probeer het eens!
-							</p>
-							<p className='text-sm text-muted-foreground'>
-								Je mag natuurlijk ook gewoon mijn{' '}
-								<Link className='text-primary hover:underline' target='_blank' href='https://www.linkedin.com/in/danielstals/'>
-									LinkedIn profiel
-								</Link>{' '}
-								bezoeken.
-							</p>
-						</div>
-					)}
+					{!error && messages.length === 0 && isOpen && <ChatPlaceholder />}
 
 					{messages?.map((message: Message, index: number) => (
 						<ChatMessage key={index} message={message} />
@@ -129,13 +134,14 @@ export function ChatContainer({ sessionId, initialMessages }: IChatContainerProp
 							}}
 						/>
 					)}
-					{error && (
+					{chatError && (
 						<ChatMessage
 							message={{
 								id: 'error',
 								role: 'assistant',
-								content: 'Er is iets fout gegaan. Probeer het opnieuw.',
+								content: chatError.message,
 							}}
+							variant='destructive'
 						/>
 					)}
 				</div>
@@ -146,10 +152,8 @@ export function ChatContainer({ sessionId, initialMessages }: IChatContainerProp
 						type='button'
 						title='Reset de chat'
 						className='items-center justify-center h-auto hover:text-primary max-sm:px-2'
-						onClick={(e) => {
-							e.preventDefault();
-							setMessages([]);
-						}}
+						onClick={deleteHistoryHandler}
+						disabled={!messages.length || isLoading}
 					>
 						<Trash size={18} />
 					</DsButton>
@@ -167,7 +171,7 @@ export function ChatContainer({ sessionId, initialMessages }: IChatContainerProp
 					<DsButton
 						type='submit'
 						title='Stuur je vraag'
-						isDisabled={!input}
+						disabled={!input || isLoading}
 						className='items-center justify-center sm:ml-3 max-sm:bg-transparent max-sm:px-2'
 					>
 						<FaArrowRight className='max-sm:text-foreground text-background dark:text-foreground' />

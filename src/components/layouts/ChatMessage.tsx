@@ -2,24 +2,35 @@
 
 import { cn } from '@/lib/utils';
 import { Message } from 'ai/react';
+import { cva, VariantProps } from 'class-variance-authority';
 import { Bot } from 'lucide-react';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 
-interface ChatMessageProps {
+const chatMessageVariants = cva('mb-3 flex items-center', {
+	variants: {
+		variant: {
+			destructive: 'bg-red-500 text-background',
+		},
+	},
+});
+
+export interface ChatMessageProps extends VariantProps<typeof chatMessageVariants> {
 	message: Message;
+	className?: string;
 }
 
-export function ChatMessage({ message: { role, content } }: ChatMessageProps): JSX.Element {
+export function ChatMessage({ message: { role, content }, variant, className }: ChatMessageProps): JSX.Element {
 	const isAiMessage = role === 'assistant';
 
 	return (
-		<div className={cn('mb-3 flex items-center', isAiMessage ? 'justify-start' : 'justify-end')}>
+		<div className={cn(isAiMessage ? 'justify-start' : 'justify-end', chatMessageVariants({ className }))}>
 			{isAiMessage && <Bot className='flex-none mr-2' />}
 			<div
 				className={cn(
 					'rounded-md border px-3 py-2',
-					isAiMessage ? 'bg-background text-foreground' : 'bg-primary dark:bg-slate-500 text-background'
+					isAiMessage ? 'bg-background text-foreground' : 'bg-primary dark:bg-slate-500 text-background',
+					chatMessageVariants({ variant })
 				)}
 			>
 				<ReactMarkdown

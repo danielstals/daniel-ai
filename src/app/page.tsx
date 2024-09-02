@@ -8,7 +8,7 @@ export default async function Home() {
 	const initialMessages = await ragChat.history.getMessages({ sessionId: sessionCookie, amount: 10 });
 
 	return (
-		<div className='flex flex-col flex-grow justify-center max-sm:overflow-y-hidden w-full max-w-[800px] self-center'>
+		<div className='flex flex-col flex-grow w-full max-w-[800px] self-center max-sm:overflow-y-hidden pt-[20px]'>
 			<h2 className='block mb-3 font-semibold text-foreground text-md sm:text-2xl md:text-3xl'>
 				Hi, ik ben Daniel Stals
 				<br />

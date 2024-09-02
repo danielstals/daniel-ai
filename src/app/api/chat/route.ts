@@ -1,16 +1,37 @@
 import { ragChat } from '@/lib/ai/rag-chat';
+import { convertUnixToLocalTimeWithDifference } from '@/lib/utils';
+import { RatelimitResponse, RatelimitUpstashError } from '@upstash/rag-chat';
 import { aiUseChatAdapter } from '@upstash/rag-chat/nextjs';
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 export const POST = async (req: NextRequest) => {
 	const { messages, sessionId } = await req.json();
 
 	const lastMessage = messages[messages.length - 1].content;
 
-	const response = await ragChat.chat(lastMessage, {
-		streaming: true,
-		sessionId,
-	});
+	try {
+		const response = await ragChat.chat(lastMessage, {
+			streaming: true,
+			sessionId,
+			ratelimitSessionId: sessionId,
+		});
 
-	return aiUseChatAdapter(response);
+		return aiUseChatAdapter(response);
+	} catch (error) {
+		if (error instanceof RatelimitUpstashError) {
+			const unixResetTime: number | undefined = (error.cause as RatelimitResponse)?.resetTime;
+			const formattedTimeLeft: string | undefined = unixResetTime ? convertUnixToLocalTimeWithDifference(unixResetTime) : undefined;
+
+			return NextResponse.json(
+				{
+					name: 'ERR:USER_RATELIMITED',
+					status: 429,
+					message: `Je hebt teveel berichten in korte tijd gestuurd! ${formattedTimeLeft}`,
+				},
+				{ status: 429 }
+			);
+		}
+
+		return NextResponse.json({ name: 'ERR:CHAT_UNKNOWN', status: 500, message: 'Er ging iets mis' }, { status: 500 });
+	}
 };

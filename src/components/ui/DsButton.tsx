@@ -8,7 +8,7 @@ const styleOptions = cva('flex h-[35px] rounded-md active:scale-[0.85] transitio
 			transparent: ['bg-transparent', 'hover:bg-background/30'],
 		},
 		isDisabled: {
-			true: ['bg-primary/50', 'disabled:pointer-events-none'],
+			true: ['opacity-50', 'disabled:pointer-events-none'],
 		},
 		buttonType: {
 			onlyText: ['px-4'],
@@ -25,15 +25,20 @@ interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, Va
 	children: React.ReactNode;
 	text?: string;
 	icon?: JSX.Element;
-	isDisabled?: boolean;
 }
 
 export const DsButton = forwardRef<HTMLButtonElement, IButtonProps>(function PromptButton(
-	{ children, text, icon, className, isDisabled, onClick, variant, ...inputParams }: IButtonProps,
+	{ children, text, icon, className, disabled, onClick, variant, ...inputParams }: IButtonProps,
 	ref
 ) {
 	return (
-		<button onClick={onClick} className={styleOptions({ className, variant, isDisabled })} disabled={isDisabled} ref={ref} {...inputParams}>
+		<button
+			onClick={onClick}
+			className={styleOptions({ className, variant, isDisabled: disabled })}
+			disabled={disabled}
+			ref={ref}
+			{...inputParams}
+		>
 			{children}
 		</button>
 	);
