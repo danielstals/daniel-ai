@@ -111,7 +111,6 @@ export function ChatContainer({ sessionId, initialMessages }: IChatContainerProp
 					isOpen ? 'max-sm:flex-grow sm:h-[400px]' : 'h-[60px]'
 				)}
 				onSubmit={submitHandler}
-				onClick={() => inputRef.current?.focus()}
 			>
 				<div
 					className={cn(

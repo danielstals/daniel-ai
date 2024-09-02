@@ -18,7 +18,7 @@ export const ragChat = new RAGChat({
 		redis,
 		limiter: Ratelimit.slidingWindow(5, '1 m'),
 		ephemeralCache: cache,
-		prefix: 'daniel-ai-ratelimit-',
+		prefix: 'daniel-ai-ratelimit',
 		analytics: true,
 	}),
 	promptFn: ({ question, chatHistory, context }) => {
