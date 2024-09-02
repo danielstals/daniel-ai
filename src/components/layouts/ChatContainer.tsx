@@ -90,7 +90,7 @@ export function ChatContainer({ sessionId, initialMessages }: IChatContainerProp
 				behavior: 'smooth',
 			});
 		}
-	}, [messages, chatError]);
+	}, [messages, chatError, isLoading]);
 
 	useEffect(() => {
 		if (error) {

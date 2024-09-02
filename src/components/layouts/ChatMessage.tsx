@@ -34,7 +34,7 @@ export function ChatMessage({ message: { role, content }, variant, className }: 
 				)}
 			>
 				<ReactMarkdown
-					className='text-sm sm:text-base'
+					className='text-sm'
 					components={{
 						a: ({ node, ref, ...props }) => (
 							<Link target='_blank' {...props} href={props.href ?? ''} className='text-primary hover:underline' />
