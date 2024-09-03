@@ -3,15 +3,16 @@ import { Ratelimit } from '@upstash/ratelimit';
 import { redis } from './redis';
 
 const openaiToken = (process.env.OPENAI_API_KEY as string) || '';
+const langchainToken = (process.env.LANGCHAIN_API_KEY as string) || '';
 
 const cache = new Map<string, number>();
 
-if (!openaiToken) {
-	throw new Error('OPENAI_API_KEY must be set');
+if (!openaiToken || !langchainToken) {
+	throw new Error('OPENAI_API_KEY and LANGCHAIN_API_KEY must be set');
 }
 
 export const ragChat = new RAGChat({
-	debug: false,
+	debug: true,
 	model: openai('gpt-4o-mini', { apiKey: openaiToken }),
 	redis,
 	ratelimit: new Ratelimit({
@@ -24,7 +25,7 @@ export const ragChat = new RAGChat({
 	}),
 	promptFn: ({ question, chatHistory, context }) => {
 		return `You are a friendly AI assistant augmented with an Upstash Vector Store.
-You impersonate the person in the profile (Daniel).
+You impersonate the person in the profile.
 To help you answer the questions, a context and/or chat history will be provided.
 Answer the question at the end using only the information available in the context or chat history, either one is ok.
 Answer as completely as possible, and take special care in looking at the dates mentioned in the context.

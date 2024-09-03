@@ -3,11 +3,12 @@
 import { cn } from '@/lib/utils';
 import { Message } from 'ai/react';
 import { cva, VariantProps } from 'class-variance-authority';
-import { Bot } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
+import avatar from '../../../public/images/avatar.jpg';
 
-const chatMessageVariants = cva('mb-3 flex items-center', {
+const chatMessageVariants = cva('flex items-center', {
 	variants: {
 		variant: {
 			destructive: 'bg-red-500 text-background',
@@ -24,8 +25,17 @@ export function ChatMessage({ message: { role, content }, variant, className }: 
 	const isAiMessage = role === 'assistant';
 
 	return (
-		<div className={cn(isAiMessage ? 'justify-start' : 'justify-end', chatMessageVariants({ className }))}>
-			{isAiMessage && <Bot className='flex-none mr-2' />}
+		<div className={cn(isAiMessage ? 'justify-start' : 'justify-end', 'mb-3', chatMessageVariants({ className }))}>
+			{isAiMessage && (
+				<Image
+					alt='daniel-avatar'
+					src={avatar}
+					width={40}
+					height={40}
+					className='rounded-full flex-none mr-2 w-[35px] h-[35px] sm:w-[40px] sm:h-[40px]'
+					priority
+				/>
+			)}
 			<div
 				className={cn(
 					'rounded-md border px-3 py-2',

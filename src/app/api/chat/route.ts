@@ -14,6 +14,8 @@ export const POST = async (req: NextRequest) => {
 			streaming: true,
 			sessionId,
 			ratelimitSessionId: sessionId,
+			similarityThreshold: 0.5,
+			topK: 10,
 		});
 
 		return aiUseChatAdapter(response);
