@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import type { Config } from 'tailwindcss';
 import plugin from 'tailwindcss/plugin';
 
@@ -74,8 +75,8 @@ const config = {
 		},
 	},
 	plugins: [
-		// eslint-disable-next-line @typescript-eslint/no-require-imports
 		require('tailwindcss-animate'),
+		require('@tailwindcss/typography'),
 		plugin(function ({ addUtilities }) {
 			addUtilities({
 				'.overflow-anchor-auto': {

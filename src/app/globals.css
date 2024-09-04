@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+	.markdown-custom li > p {
+		@apply inline;
+	}
+}
+
 @layer base {
 	:root {
 		--background: 0 0% 100%;

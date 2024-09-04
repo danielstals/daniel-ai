@@ -49,7 +49,8 @@ export function ChatMessage({ message: { role, content }, variant, className, is
 				)}
 			>
 				<ReactMarkdown
-					className='text-sm'
+					// eslint-disable-next-line tailwindcss/no-custom-classname
+					className='markdown-custom text-sm'
 					components={{
 						a: ({ ...props }) => <Link target='_blank' {...props} href={props.href ?? ''} className='text-primary hover:underline' />,
 						p: ({ ...props }) => <p {...props} className='mt-3 inline-block first:mt-0' />,

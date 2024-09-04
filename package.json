@@ -22,6 +22,7 @@
 		"@radix-ui/react-slot": "^1.1.0",
 		"@radix-ui/react-toast": "^1.2.1",
 		"@t3-oss/env-nextjs": "^0.11.0",
+		"@tailwindcss/typography": "^0.5.15",
 		"@tanstack/react-query": "^5.51.23",
 		"@upstash/rag-chat": "^1.5.0",
 		"@upstash/ratelimit": "^2.0.2",
