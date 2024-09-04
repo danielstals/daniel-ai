@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import plugin from 'tailwindcss/plugin';
 
 const config = {
 	darkMode: ['class'],
@@ -72,7 +73,19 @@ const config = {
 			},
 		},
 	},
-	plugins: [require('tailwindcss-animate')],
+	plugins: [
+		require('tailwindcss-animate'),
+		plugin(function ({ addUtilities }) {
+			addUtilities({
+				'.overflow-anchor-auto': {
+					'overflow-anchor': 'auto' /* See https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-anchor */,
+				},
+				'.translate-z-0': {
+					transform: 'translateZ(0)' /* fixes a bug in Safari iOS where the scroller doesn't update */,
+				},
+			});
+		}),
+	],
 } satisfies Config;
 
 export default config;

@@ -1,5 +1,6 @@
 'use client';
 
+import dotDotDot from '@/lib/animations/dot-dot-dot.json';
 import { cn } from '@/lib/utils';
 import { Message } from 'ai/react';
 import { cva, VariantProps } from 'class-variance-authority';
@@ -7,6 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import avatar from '../../../public/images/avatar.jpg';
+import { LottieAnimation } from '../ui/LottieAnimation';
 
 const chatMessageVariants = cva('flex items-center', {
 	variants: {
@@ -19,13 +21,14 @@ const chatMessageVariants = cva('flex items-center', {
 export interface ChatMessageProps extends VariantProps<typeof chatMessageVariants> {
 	message: Message;
 	className?: string;
+	isLoading?: boolean;
 }
 
-export function ChatMessage({ message: { role, content }, variant, className }: ChatMessageProps): JSX.Element {
+export function ChatMessage({ message: { role, content }, variant, className, isLoading }: ChatMessageProps): JSX.Element {
 	const isAiMessage = role === 'assistant';
 
 	return (
-		<div className={cn(isAiMessage ? 'justify-start' : 'justify-end', 'mb-3', chatMessageVariants({ className }))}>
+		<div className={cn(isAiMessage ? 'justify-start' : 'justify-end', 'mb-3 translate-z-0', chatMessageVariants({ className }))}>
 			{isAiMessage && (
 				<Image
 					alt='daniel-avatar'
@@ -49,13 +52,19 @@ export function ChatMessage({ message: { role, content }, variant, className }: 
 						a: ({ node, ref, ...props }) => (
 							<Link target='_blank' {...props} href={props.href ?? ''} className='text-primary hover:underline' />
 						),
-						p: ({ node, ...props }) => <p {...props} className='mt-3 first:mt-0' />,
+						p: ({ node, ...props }) => <p {...props} className='inline-block mt-3 first:mt-0' />,
 						ul: ({ node, ...props }) => <ul {...props} className='mt-3 list-disc list-inside first:mt-0' />,
 						li: ({ node, ...props }) => <li {...props} className='mt-1' />,
 					}}
 				>
 					{content}
 				</ReactMarkdown>
+
+				{isLoading && (
+					<div className='h-[15px] w-[40px] translate-y-[3px]'>
+						<LottieAnimation height={60} animationData={dotDotDot} />
+					</div>
+				)}
 			</div>
 		</div>
 	);

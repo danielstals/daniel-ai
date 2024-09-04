@@ -84,15 +84,6 @@ export function ChatContainer({ sessionId, initialMessages }: IChatContainerProp
 	}, [input]);
 
 	useEffect(() => {
-		if (scrollRef.current) {
-			scrollRef.current.scrollTo({
-				top: scrollRef.current.scrollHeight,
-				behavior: 'smooth',
-			});
-		}
-	}, [messages, chatError, isLoading]);
-
-	useEffect(() => {
 		if (error) {
 			const chatError: ChatError = JSON.parse(error.message);
 			setChatError(chatError);
@@ -100,6 +91,15 @@ export function ChatContainer({ sessionId, initialMessages }: IChatContainerProp
 			setChatError(null);
 		}
 	}, [error]);
+
+	useEffect(() => {
+		if (scrollRef.current) {
+			scrollRef.current.scrollTo({
+				top: scrollRef.current.scrollHeight,
+				behavior: 'smooth',
+			});
+		}
+	}, [isLoading]);
 
 	return (
 		<div className='flex flex-col overflow-y-hidden max-sm:flex-grow'>
@@ -114,35 +114,38 @@ export function ChatContainer({ sessionId, initialMessages }: IChatContainerProp
 			>
 				<div
 					className={cn(
-						'flex flex-col flex-grow p-5 rounded-tl-md rounded-tr-md overflow-y-auto rounded-none',
+						'flex flex-col-reverse flex-grow p-5 rounded-tl-md rounded-tr-md overflow-y-auto !overflow-anchor-auto rounded-none',
 						isOpen ? 'visible border-b border-b-solid' : 'hidden'
 					)}
 					ref={scrollRef}
 				>
 					{!error && messages.length === 0 && isOpen && <ChatPlaceholder />}
 
-					{messages?.map((message: Message, index: number) => (
-						<ChatMessage key={index} message={message} />
-					))}
-					{isLoading && lastMessageIsUser && (
-						<ChatMessage
-							message={{
-								id: 'loading',
-								role: 'assistant',
-								content: 'Even geduld a.u.b...',
-							}}
-						/>
-					)}
-					{chatError && (
-						<ChatMessage
-							message={{
-								id: 'error',
-								role: 'assistant',
-								content: chatError.message,
-							}}
-							variant='destructive'
-						/>
-					)}
+					<div>
+						{messages?.map((message: Message, index: number) => (
+							<ChatMessage key={index} message={message} />
+						))}
+						{isLoading && lastMessageIsUser && (
+							<ChatMessage
+								message={{
+									id: 'loading',
+									role: 'assistant',
+									content: 'Even geduld a.u.b',
+								}}
+								isLoading={isLoading && lastMessageIsUser}
+							/>
+						)}
+						{chatError && (
+							<ChatMessage
+								message={{
+									id: 'error',
+									role: 'assistant',
+									content: chatError.message,
+								}}
+								variant='destructive'
+							/>
+						)}
+					</div>
 				</div>
 
 				<div className={cn('flex items-center px-1 sm:px-2 sm:pl-0 bg-background z-[5]', isOpen ? 'h-auto' : 'h-[60px]')}>
