@@ -1,6 +1,7 @@
 import { Ratelimit } from '@upstash/ratelimit';
 import type { NextFetchEvent, NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
+
 import { redis } from './lib/ai/redis';
 
 const ratelimit = new Ratelimit({

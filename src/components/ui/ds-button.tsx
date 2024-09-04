@@ -1,7 +1,7 @@
 import { cva, VariantProps } from 'class-variance-authority';
 import { forwardRef } from 'react';
 
-const styleOptions = cva('flex h-[35px] rounded-md active:scale-[0.85] transition duration-200 items-center justify-center', {
+const styleOptions = cva('flex h-[35px] items-center justify-center rounded-md transition duration-200 active:scale-[0.85]', {
 	variants: {
 		variant: {
 			primary: ['bg-primary', 'hover:bg-foreground', 'text-white'],
@@ -28,8 +28,8 @@ interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, Va
 }
 
 export const DsButton = forwardRef<HTMLButtonElement, IButtonProps>(function PromptButton(
-	{ children, text, icon, className, disabled, onClick, variant, ...inputParams }: IButtonProps,
-	ref
+	{ children, className, disabled, onClick, variant, ...inputParams }: IButtonProps,
+	ref,
 ) {
 	return (
 		<button

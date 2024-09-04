@@ -2,7 +2,7 @@ import { cva, VariantProps } from 'class-variance-authority';
 import React, { cloneElement, forwardRef } from 'react';
 
 const styleOptions = cva(
-	'group flex flex-col justify-between sm:h-[120px] bg-background rounded-md text-left p-3 border-solid border hover:border-primary transition duration-200',
+	'group flex flex-col justify-between rounded-md border border-solid bg-background p-3 text-left transition duration-200 hover:border-primary sm:h-[120px]',
 	{
 		variants: {
 			variant: {
@@ -12,7 +12,7 @@ const styleOptions = cva(
 		defaultVariants: {
 			variant: 'primary',
 		},
-	}
+	},
 );
 
 interface IPromptButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof styleOptions> {
@@ -23,7 +23,7 @@ interface IPromptButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 
 export const PromptButton = forwardRef<HTMLButtonElement, IPromptButtonProps>(function PromptButton(
 	{ text, icon, className, onClick, isDisabled, variant, ...inputParams }: IPromptButtonProps,
-	ref
+	ref,
 ) {
 	return (
 		<button onClick={onClick} className={styleOptions({ variant, className })} disabled={isDisabled} ref={ref} {...inputParams}>

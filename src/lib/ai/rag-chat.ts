@@ -1,5 +1,6 @@
 import { openai, RAGChat } from '@upstash/rag-chat';
 import { Ratelimit } from '@upstash/ratelimit';
+
 import { redis } from './redis';
 
 const openaiToken = (process.env.OPENAI_API_KEY as string) || '';

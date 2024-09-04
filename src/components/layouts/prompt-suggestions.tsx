@@ -1,7 +1,8 @@
 import { cva } from 'class-variance-authority';
 import { CiLaptop, CiMail, CiUser } from 'react-icons/ci';
-import { PromptButton } from '../ui/PromptButton';
+
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../ui/carousel';
+import { PromptButton } from '../ui/prompt-button';
 
 const styleOptions = cva('max-w-[650px]');
 
@@ -18,11 +19,11 @@ interface IPromptSuggestion {
 const suggestedPrompts: IPromptSuggestion[] = [
 	{
 		text: 'Geef me een samenvatting van je profiel.',
-		icon: <CiUser size={24} className='text-neutral-mid' />,
+		icon: <CiUser size={24} />,
 	},
 	{
 		text: 'In welke technologieen ben je thuis?',
-		icon: <CiLaptop size={24} className='text-neutral-mid' />,
+		icon: <CiLaptop size={24} />,
 	},
 	{
 		text: 'Hoe kan ik je bereiken?',
@@ -42,12 +43,12 @@ export function PromptSuggestions({ className, onClick }: IPromptSuggestionsProp
 						</CarouselItem>
 					))}
 				</CarouselContent>
-				<CarouselPrevious className='left-2 bottom-2 top-[unset] translate-y-[unset]' />
-				<CarouselNext className='right-2 bottom-2 top-[unset] translate-y-[unset]' />
+				<CarouselPrevious className='bottom-2 left-2 top-[unset] translate-y-[unset]' />
+				<CarouselNext className='bottom-2 right-2 top-[unset] translate-y-[unset]' />
 			</Carousel>
 
 			{/* Grid for desktop screens only */}
-			<div className='hidden sm:grid grid-cols-3 gap-4'>
+			<div className='hidden grid-cols-3 gap-4 sm:grid'>
 				{suggestedPrompts.map((prompt: IPromptSuggestion, index: number) => (
 					<PromptButton key={index} onClick={() => onClick(prompt.text)} text={prompt.text} icon={prompt.icon} />
 				))}

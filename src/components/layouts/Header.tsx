@@ -1,4 +1,4 @@
-import { ModeToggle } from '../ui/ModeToggle';
+import { ModeToggle } from '../ui/mode-toggle';
 
 export interface IHeaderProps {
 	title: string;
@@ -6,7 +6,7 @@ export interface IHeaderProps {
 
 export function Header({ title }: IHeaderProps) {
 	return (
-		<header className='flex justify-between mb-6'>
+		<header className='mb-6 flex justify-between'>
 			<h1 className='text-2xl font-semibold text-foreground'>{title}</h1>
 			<ModeToggle />
 		</header>

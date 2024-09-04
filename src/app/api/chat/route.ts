@@ -1,8 +1,9 @@
-import { ragChat } from '@/lib/ai/rag-chat';
-import { convertUnixToLocalTimeWithDifference } from '@/lib/utils';
 import { RatelimitResponse, RatelimitUpstashError } from '@upstash/rag-chat';
 import { aiUseChatAdapter } from '@upstash/rag-chat/nextjs';
 import { NextRequest, NextResponse } from 'next/server';
+
+import { ragChat } from '@/lib/ai/rag-chat';
+import { convertUnixToLocalTimeWithDifference } from '@/lib/utils';
 
 export const POST = async (req: NextRequest) => {
 	const { messages, sessionId } = await req.json();
@@ -30,7 +31,7 @@ export const POST = async (req: NextRequest) => {
 					status: 429,
 					message: `Je hebt teveel berichten in korte tijd gestuurd! ${formattedTimeLeft}`,
 				},
-				{ status: 429 }
+				{ status: 429 },
 			);
 		}
 

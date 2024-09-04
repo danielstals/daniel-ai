@@ -13,7 +13,6 @@ interface LottieProps<T extends Record<string, unknown>> {
 export function LazyLottie<T extends Record<string, unknown>>({
 	getAnimationData,
 	id,
-	ref,
 	...props
 }: LottieProps<T> & Omit<LottieComponentProps, 'animationData'>) {
 	const { data } = useQuery({
@@ -29,11 +28,11 @@ export function LazyLottie<T extends Record<string, unknown>>({
 	if (!data)
 		return (
 			<Image
-				src="/animations/placeholder.svg"
+				src='/animations/placeholder.svg'
 				width={500}
 				height={500}
 				style={{ width: '100%', height: 'auto' }}
-				alt="Under construction placeholder"
+				alt='Under construction placeholder'
 				priority
 			/>
 		);
@@ -42,16 +41,16 @@ export function LazyLottie<T extends Record<string, unknown>>({
 		<Suspense
 			fallback={
 				<Image
-					src="/animations/placeholder.svg"
+					src='/animations/placeholder.svg'
 					width={500}
 					height={500}
 					style={{ width: '100%', height: 'auto' }}
-					alt="Under construction placeholder"
+					alt='Under construction placeholder'
 					priority
 				/>
 			}
 		>
-			<LazyLottieComponent animationData={data} {...props} />
+			<LazyLottieComponent animationData={data} {...props} ref={undefined} />
 		</Suspense>
 	);
 }

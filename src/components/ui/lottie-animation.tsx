@@ -10,7 +10,7 @@ interface LottieAnimationProps {
 
 export function LottieAnimation({ animationData, loop = true, autoplay = true, width = 300, height = 300 }: LottieAnimationProps) {
 	return (
-		<div className='flex justify-center items-center overflow-hidden w-full h-full'>
+		<div className='flex size-full items-center justify-center overflow-hidden'>
 			<Lottie autoplay={autoplay} loop={loop} animationData={animationData} style={{ width, height, flexShrink: 0 }} />
 		</div>
 	);

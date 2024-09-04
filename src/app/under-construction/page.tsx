@@ -1,14 +1,14 @@
 'use client';
 
-import { LazyLottie } from '@/components/ui/LazyLottie';
+import { LazyLottie } from '@/components/ui/lazy-lottie';
 
 export default function UnderConstruction() {
 	return (
-		<div className="flex flex-col self-center w-full h-full items-center justify-center">
-			<h2 className="text-neutral text-3xl font-semibold">Under construction</h2>
+		<div className='flex size-full flex-col items-center justify-center self-center'>
+			<h2 className='text-3xl font-semibold text-foreground'>Under construction</h2>
 
-			<div className="relative w-full max-w-[400px]">
-				<LazyLottie getAnimationData={() => fetch('/animations/under-construction.json').then((res) => res.json())} loop id="empty-box" />
+			<div className='relative w-full max-w-[400px]'>
+				<LazyLottie getAnimationData={() => fetch('/animations/under-construction.json').then((res) => res.json())} loop id='empty-box' />
 			</div>
 		</div>
 	);

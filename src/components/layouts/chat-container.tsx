@@ -1,17 +1,20 @@
 'use client';
 
-import { deleteHistory } from '@/app/actions/delete-history';
-import { ChatError } from '@/lib/models/chat-error';
-import { cn } from '@/lib/utils';
 import { ChatRequestOptions, Message } from 'ai';
 import { useChat } from 'ai/react';
 import { Trash } from 'lucide-react';
 import { MouseEvent, useEffect, useRef, useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
-import { ChatPlaceholder } from '../ui/ChatPlaceholder';
-import { DsButton } from '../ui/DsButton';
-import { ChatMessage } from './ChatMessage';
-import { PromptSuggestions } from './PromptSuggestions';
+
+import { deleteHistory } from '@/app/actions/delete-history';
+import { ChatError } from '@/lib/models/chat-error';
+import { cn } from '@/lib/utils';
+
+import { ChatPlaceholder } from '../ui/chat-placeholder';
+import { DsButton } from '../ui/ds-button';
+
+import { ChatMessage } from './chat-message';
+import { PromptSuggestions } from './prompt-suggestions';
 
 interface IChatContainerProps {
 	sessionId: string;
@@ -45,7 +48,7 @@ export function ChatContainer({ sessionId, initialMessages }: IChatContainerProp
 		event?: {
 			preventDefault?: () => void;
 		},
-		chatRequestOptions?: ChatRequestOptions
+		chatRequestOptions?: ChatRequestOptions,
 	): void {
 		event?.preventDefault?.();
 
@@ -102,29 +105,27 @@ export function ChatContainer({ sessionId, initialMessages }: IChatContainerProp
 	}, [isLoading]);
 
 	return (
-		<div className='flex flex-col overflow-y-hidden max-sm:flex-grow'>
+		<div className='flex flex-col overflow-y-hidden max-sm:grow'>
 			<PromptSuggestions className='mb-5' onClick={setSuggestedPromptHandler} />
 
 			<form
 				className={cn(
 					'flex flex-col bg-background w-full overflow-hidden rounded-md shadow transition-height duration-200',
-					isOpen ? 'max-sm:flex-grow sm:h-[400px]' : 'h-[60px]'
+					isOpen ? 'max-sm:flex-grow sm:h-[400px]' : 'h-[60px]',
 				)}
 				onSubmit={submitHandler}
 			>
 				<div
 					className={cn(
 						'flex flex-col-reverse flex-grow p-5 rounded-tl-md rounded-tr-md overflow-y-auto !overflow-anchor-auto rounded-none',
-						isOpen ? 'visible border-b border-b-solid' : 'hidden'
+						isOpen ? 'visible border-b border-b-solid' : 'hidden',
 					)}
 					ref={scrollRef}
 				>
 					{!error && messages.length === 0 && isOpen && <ChatPlaceholder />}
 
 					<div>
-						{messages?.map((message: Message, index: number) => (
-							<ChatMessage key={index} message={message} />
-						))}
+						{messages?.map((message: Message, index: number) => <ChatMessage key={index} message={message} />)}
 						{isLoading && lastMessageIsUser && (
 							<ChatMessage
 								message={{
@@ -153,7 +154,7 @@ export function ChatContainer({ sessionId, initialMessages }: IChatContainerProp
 						variant='transparent'
 						type='button'
 						title='Reset de chat'
-						className='items-center justify-center h-auto hover:text-primary max-sm:px-2'
+						className='h-auto items-center justify-center hover:text-primary max-sm:px-2'
 						onClick={deleteHistoryHandler}
 						disabled={!messages.length || isLoading}
 					>
@@ -164,7 +165,7 @@ export function ChatContainer({ sessionId, initialMessages }: IChatContainerProp
 						onChange={handleInputChange}
 						onFocus={() => setIsOpen(true)}
 						onKeyDown={handleKeyDown}
-						className='w-full px-0 py-4 text-sm outline-none sm:px-4 rounded-bl-md rounded-br-md focus:border-primary'
+						className='w-full rounded-b-md px-0 py-4 text-sm outline-none focus:border-primary sm:px-4'
 						type='text'
 						placeholder='Stel me een vraag...'
 						ref={inputRef}
@@ -174,9 +175,9 @@ export function ChatContainer({ sessionId, initialMessages }: IChatContainerProp
 						type='submit'
 						title='Stuur je vraag'
 						disabled={!input || isLoading}
-						className='items-center justify-center sm:ml-3 max-sm:bg-transparent max-sm:px-2'
+						className='items-center justify-center max-sm:bg-transparent max-sm:px-2 sm:ml-3'
 					>
-						<FaArrowRight className='max-sm:text-foreground text-background dark:text-foreground' />
+						<FaArrowRight className='text-background dark:text-foreground max-sm:text-foreground' />
 					</DsButton>
 				</div>
 			</form>
