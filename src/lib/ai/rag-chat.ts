@@ -13,7 +13,7 @@ if (!openaiToken || !langchainToken) {
 }
 
 export const ragChat = new RAGChat({
-	debug: true,
+	debug: false,
 	model: openai('gpt-4o-mini', { apiKey: openaiToken }),
 	redis,
 	ratelimit: new Ratelimit({
