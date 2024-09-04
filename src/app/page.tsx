@@ -1,6 +1,7 @@
 import { cookies } from 'next/headers';
 
-import { ChatContainer } from '@/components/layouts/chat-container';
+import { ChatLayout } from '@/components/layouts/chat-layout';
+import { ChatContainer } from '@/features/chat/components/chat-container';
 import { ragChat } from '@/lib/ai/rag-chat';
 
 export default async function Home() {
@@ -20,7 +21,9 @@ export default async function Home() {
 				Gebruik een van de standaard vragen of formuleer zelf een vraag
 			</span>
 
-			<ChatContainer sessionId={sessionCookie} initialMessages={initialMessages} />
+			<ChatLayout>
+				<ChatContainer sessionId={sessionCookie} initialMessages={initialMessages} />
+			</ChatLayout>
 		</div>
 	);
 }

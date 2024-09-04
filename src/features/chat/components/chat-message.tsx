@@ -9,8 +9,8 @@ import ReactMarkdown from 'react-markdown';
 import dotDotDot from '@/lib/animations/dot-dot-dot.json';
 import { cn } from '@/utils/cn';
 
-import avatar from '../../../public/images/avatar.jpg';
-import { LottieAnimation } from '../ui/lottie-animation';
+import avatar from '../../../../public/images/avatar.jpg';
+import { LottieAnimation } from '../../../components/ui/lottie-animation';
 
 const chatMessageVariants = cva('flex items-center', {
 	variants: {

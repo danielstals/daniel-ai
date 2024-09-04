@@ -7,21 +7,20 @@ import { MouseEvent, useEffect, useRef, useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 
 import { deleteHistory } from '@/app/actions/delete-history';
-import { ChatError } from '@/types/chat.types';
+import { ChatPlaceholder } from '@/components/ui/chat-placeholder';
+import { DsButton } from '@/components/ui/ds-button';
+import { ChatError } from '@/features/chat/types/chat.types';
 import { cn } from '@/utils/cn';
-
-import { ChatPlaceholder } from '../ui/chat-placeholder';
-import { DsButton } from '../ui/ds-button';
 
 import { ChatMessage } from './chat-message';
 import { PromptSuggestions } from './prompt-suggestions';
 
-interface IChatContainerProps {
+type ChatContainerProps = {
 	sessionId: string;
 	initialMessages: Message[];
-}
+};
 
-export function ChatContainer({ sessionId, initialMessages }: IChatContainerProps): JSX.Element {
+export function ChatContainer({ sessionId, initialMessages }: ChatContainerProps): JSX.Element {
 	const { input, setInput, handleInputChange, handleSubmit, messages, setMessages, isLoading, error } = useChat({
 		body: { sessionId },
 		initialMessages,
@@ -105,7 +104,7 @@ export function ChatContainer({ sessionId, initialMessages }: IChatContainerProp
 	}, [isLoading]);
 
 	return (
-		<div className='flex flex-col overflow-y-hidden max-sm:grow'>
+		<>
 			<PromptSuggestions className='mb-5' onClick={setSuggestedPromptHandler} />
 
 			<form
@@ -181,6 +180,6 @@ export function ChatContainer({ sessionId, initialMessages }: IChatContainerProp
 					</DsButton>
 				</div>
 			</form>
-		</div>
+		</>
 	);
 }
