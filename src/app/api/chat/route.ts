@@ -3,7 +3,7 @@ import { aiUseChatAdapter } from '@upstash/rag-chat/nextjs';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { ragChat } from '@/lib/ai/rag-chat';
-import { convertUnixToLocalTimeWithDifference } from '@/lib/utils';
+import { convertUnixToLocalTimeWithDifference } from '@/utils/format';
 
 export const POST = async (req: NextRequest) => {
 	const { messages, sessionId } = await req.json();

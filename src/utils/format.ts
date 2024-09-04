@@ -1,10 +1,4 @@
-import { type ClassValue, clsx } from 'clsx';
 import { differenceInDays, differenceInHours, differenceInMinutes, differenceInSeconds } from 'date-fns';
-import { twMerge } from 'tailwind-merge';
-
-export function cn(...inputs: ClassValue[]): string {
-	return twMerge(clsx(inputs));
-}
 
 export function convertUnixToLocalTimeWithDifference(unixTimestamp: number): string {
 	// Convert the Unix timestamp from milliseconds to a JavaScript Date object

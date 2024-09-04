@@ -7,8 +7,8 @@ import { MouseEvent, useEffect, useRef, useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 
 import { deleteHistory } from '@/app/actions/delete-history';
-import { cn } from '@/lib/utils';
-import { ChatError } from '@/types/chat-error';
+import { ChatError } from '@/types/chat.types';
+import { cn } from '@/utils/cn';
 
 import { ChatPlaceholder } from '../ui/chat-placeholder';
 import { DsButton } from '../ui/ds-button';
