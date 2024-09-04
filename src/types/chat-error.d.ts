@@ -1,5 +1,5 @@
-export interface ChatError {
+export type ChatError = {
 	name: string;
 	status: number;
 	message: string;
-}
+};
