@@ -20,11 +20,17 @@ type ChatContainerProps = {
 	initialMessages: Message[];
 };
 
+const isDevelopment = process.env.NODE_ENV !== 'production';
+
 export function ChatContainer({ sessionId, initialMessages }: ChatContainerProps): JSX.Element {
 	const { input, setInput, handleInputChange, handleSubmit, messages, setMessages, isLoading, error } = useChat({
 		body: { sessionId },
 		initialMessages,
 	});
+
+	useEffect(() => {
+		console.log('isDevelopment', isDevelopment);
+	}, []);
 
 	const [isOpen, setIsOpen] = useState<boolean>(() => !!messages.length);
 	const [chatError, setChatError] = useState<ChatError | null>(null);

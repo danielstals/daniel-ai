@@ -56,6 +56,7 @@ export function ChatMessage({ message: { role, content }, variant, className, is
 						p: ({ ...props }) => <p {...props} className='mt-3 inline-block first:mt-0' />,
 						ul: ({ ...props }) => <ul {...props} className='mt-3 list-inside list-disc first:mt-0' />,
 						li: ({ ...props }) => <li {...props} className='mt-1' />,
+						hr: ({ ...props }) => <hr {...props} className='hidden' />,
 					}}
 				>
 					{content}

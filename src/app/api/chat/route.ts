@@ -21,6 +21,7 @@ export const POST = async (req: NextRequest) => {
 
 		return aiUseChatAdapter(response);
 	} catch (error) {
+		console.error(error);
 		if (error instanceof RatelimitUpstashError) {
 			const unixResetTime: number | undefined = (error.cause as RatelimitResponse)?.resetTime;
 			const formattedTimeLeft: string | undefined = unixResetTime ? convertUnixToLocalTimeWithDifference(unixResetTime) : undefined;
