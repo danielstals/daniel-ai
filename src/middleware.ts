@@ -61,16 +61,19 @@ export async function middleware(req: NextRequest, context: NextFetchEvent) {
 		res = NextResponse.next();
 	}
 
-	// Ensure the cookie is set for all routes
+	// Ensure the sessionId cookie is set for all routes
 	const cookie = req.cookies.get('sessionId');
+
 	if (!cookie) {
-		res.cookies.set('sessionId', crypto.randomUUID(), {
+		const sessionId = crypto.randomUUID();
+
+		res.cookies.set('sessionId', sessionId, {
 			httpOnly: true,
 			secure: process.env.NODE_ENV === 'production',
 			sameSite: 'strict',
+			path: '/',
 		});
 	}
-
 	return res;
 }
 
