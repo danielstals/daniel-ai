@@ -3,7 +3,7 @@ import { aiUseChatAdapter } from '@upstash/rag-chat/nextjs';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { ragChat } from '@/lib/ai/rag-chat';
-import { convertUnixToLocalTimeWithDifference } from '@/utils/format';
+import { getTimeDifferenceStrUntilUnixTimestamp } from '@/utils/format';
 
 export const POST = async (req: NextRequest) => {
 	const { messages, sessionId } = await req.json();
@@ -24,7 +24,9 @@ export const POST = async (req: NextRequest) => {
 		console.error(error);
 		if (error instanceof RatelimitUpstashError) {
 			const unixResetTime: number | undefined = (error.cause as RatelimitResponse)?.resetTime;
-			const formattedTimeLeft: string | undefined = unixResetTime ? convertUnixToLocalTimeWithDifference(unixResetTime) : undefined;
+			const formattedTimeLeft: string | null | undefined = unixResetTime
+				? getTimeDifferenceStrUntilUnixTimestamp(unixResetTime)
+				: undefined;
 
 			return NextResponse.json(
 				{

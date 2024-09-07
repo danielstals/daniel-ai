@@ -1,17 +1,23 @@
 import { differenceInDays, differenceInHours, differenceInMinutes, differenceInSeconds } from 'date-fns';
 
-export function convertUnixToLocalTimeWithDifference(unixTimestamp: number): string {
+export function getTimeDifferenceStrUntilUnixTimestamp(unixTimestamp: number): string | null {
 	// Convert the Unix timestamp from milliseconds to a JavaScript Date object
 	const date = new Date(unixTimestamp);
 
 	// Get the current time
 	const now = new Date();
 
+	// Return null if the timestamp is in the past
+	if (date < now) return null;
+
 	// Calculate the absolute difference in time units
 	const days = Math.abs(differenceInDays(date, now));
 	const hours = Math.abs(differenceInHours(date, now) % 24);
 	const minutes = Math.abs(differenceInMinutes(date, now) % 60);
 	const seconds = Math.abs(differenceInSeconds(date, now) % 60);
+
+	// Return null if the time difference is 0
+	if (days === 0 && hours === 0 && minutes === 0 && seconds === 0) return null;
 
 	// Construct the time difference string
 	let timeDifference = 'Je kunt weer berichten sturen over ';

@@ -35,7 +35,6 @@ module.exports = {
 				'plugin:testing-library/react',
 				'plugin:jest-dom/recommended',
 				'plugin:tailwindcss/recommended',
-				'plugin:vitest/legacy-recommended',
 			],
 			rules: {
 				'@next/next/no-img-element': 'off',
