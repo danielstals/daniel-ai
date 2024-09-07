@@ -10,6 +10,7 @@ export function ModeToggle() {
 
 	return (
 		<DsButton
+			title='Toggle theme'
 			className='flex items-center justify-center'
 			variant='transparent'
 			onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}

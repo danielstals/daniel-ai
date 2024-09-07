@@ -7,6 +7,7 @@ import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 
 import dotDotDot from '@/lib/animations/dot-dot-dot.json';
+import { CHAT_AVATAR_IMG_ALT } from '@/lib/constants/constants';
 import { cn } from '@/utils/cn';
 
 import avatar from '../../../../../public/images/avatar.jpg';
@@ -33,7 +34,7 @@ export function ChatMessage({ message: { role, content }, variant, className, is
 		<div className={cn(isAiMessage ? 'justify-start' : 'justify-end', 'mb-3 translate-z-0', chatMessageVariants({ className }))}>
 			{isAiMessage && (
 				<Image
-					alt='daniel-avatar'
+					alt={CHAT_AVATAR_IMG_ALT}
 					src={avatar}
 					width={40}
 					height={40}
@@ -42,6 +43,7 @@ export function ChatMessage({ message: { role, content }, variant, className, is
 				/>
 			)}
 			<div
+				data-testid='message-row'
 				className={cn(
 					'rounded-md border px-3 py-2',
 					isAiMessage ? 'bg-background text-foreground' : 'bg-primary dark:bg-slate-500 text-background',
