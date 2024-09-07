@@ -7,13 +7,13 @@ import { MouseEvent, useEffect, useRef, useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 
 import { deleteHistory } from '@/app/actions/delete-history';
-import { ChatPlaceholder } from '@/components/ui/chat-placeholder';
-import { DsButton } from '@/components/ui/ds-button';
+import { ChatPlaceholder } from '@/components/ui/chat-placeholder/chat-placeholder';
+import { DsButton } from '@/components/ui/ds-button/ds-button';
 import { ChatError } from '@/features/chat/types/chat.types';
 import { cn } from '@/utils/cn';
 
-import { ChatMessage } from './chat-message';
-import { PromptSuggestions } from './prompt-suggestions';
+import { ChatMessage } from '../chat-message/chat-message';
+import { PromptSuggestions } from '../prompt-suggestions/prompt-suggestions';
 
 type ChatContainerProps = {
 	sessionId: string;

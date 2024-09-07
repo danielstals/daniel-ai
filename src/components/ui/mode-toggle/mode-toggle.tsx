@@ -3,7 +3,7 @@
 import { useTheme } from 'next-themes';
 import { LuMoon, LuSun } from 'react-icons/lu';
 
-import { DsButton } from './ds-button';
+import { DsButton } from '../ds-button/ds-button';
 
 export function ModeToggle() {
 	const { theme, setTheme } = useTheme();

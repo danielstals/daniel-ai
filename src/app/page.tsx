@@ -1,7 +1,7 @@
 import { cookies, headers } from 'next/headers';
 
-import { ChatLayout } from '@/components/layouts/chat-layout';
-import { ChatContainer } from '@/features/chat/components/chat-container';
+import { ChatLayout } from '@/components/layouts/chat-layout/chat-layout';
+import { ChatContainer } from '@/features/chat/components/chat-container/chat-container';
 import { ragChat } from '@/lib/ai/rag-chat';
 
 export default async function Home() {

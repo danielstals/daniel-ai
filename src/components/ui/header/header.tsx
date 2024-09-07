@@ -1,4 +1,4 @@
-import { ModeToggle } from './mode-toggle';
+import { ModeToggle } from '../mode-toggle/mode-toggle';
 
 export interface IHeaderProps {
 	title: string;

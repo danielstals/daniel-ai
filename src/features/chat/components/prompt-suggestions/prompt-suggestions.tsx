@@ -1,8 +1,8 @@
 import { cva } from 'class-variance-authority';
 import { CiLaptop, CiMail, CiUser } from 'react-icons/ci';
 
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { PromptButton } from '@/components/ui/prompt-button';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel/carousel';
+import { PromptButton } from '@/components/ui/prompt-button/prompt-button';
 
 const styleOptions = cva('max-w-[650px]');
 

@@ -3,8 +3,8 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 
-import { Header } from '@/components/ui/header';
-import { Toaster } from '@/components/ui/toaster';
+import { Header } from '@/components/ui/header/header';
+import { Toaster } from '@/components/ui/toaster/toaster';
 
 import Providers from './providers';
 

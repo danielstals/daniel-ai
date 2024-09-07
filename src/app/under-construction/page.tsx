@@ -1,6 +1,6 @@
 'use client';
 
-import { LazyLottie } from '@/components/ui/lazy-lottie';
+import { LazyLottie } from '@/components/ui/lazy-lottie/lazy-lottie';
 
 export default function UnderConstruction() {
 	return (

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import avatar from '../../../public/images/avatar.jpg';
+import avatar from '../../../../public/images/avatar.jpg';
 
 export function ChatPlaceholder() {
 	return (
