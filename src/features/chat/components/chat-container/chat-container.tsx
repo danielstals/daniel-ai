@@ -55,7 +55,7 @@ export function ChatContainer({ sessionId, initialMessages }: ChatContainerProps
 			setIsOpen(true);
 		}
 
-		if (!isLoading) {
+		if (!isLoading && input.length) {
 			handleSubmit(event, chatRequestOptions);
 		}
 	}
@@ -95,7 +95,7 @@ export function ChatContainer({ sessionId, initialMessages }: ChatContainerProps
 	}, [error]);
 
 	useEffect(() => {
-		if (scrollRef.current) {
+		if (scrollRef?.current) {
 			scrollRef.current.scrollTo({
 				top: scrollRef.current.scrollHeight,
 				behavior: 'smooth',
@@ -108,6 +108,7 @@ export function ChatContainer({ sessionId, initialMessages }: ChatContainerProps
 			<PromptSuggestions className='mb-5' onClick={setSuggestedPromptHandler} />
 
 			<form
+				aria-label='chat'
 				className={cn(
 					'flex flex-col bg-background w-full overflow-hidden rounded-md shadow transition-height duration-200',
 					isOpen ? 'max-sm:flex-grow sm:h-[400px]' : 'h-[60px]',
@@ -160,6 +161,7 @@ export function ChatContainer({ sessionId, initialMessages }: ChatContainerProps
 						<Trash size={18} />
 					</DsButton>
 					<input
+						aria-label='chat-input'
 						value={input}
 						onChange={handleInputChange}
 						onFocus={() => setIsOpen(true)}

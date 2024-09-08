@@ -19,7 +19,6 @@ describe('ChatMessage', () => {
 	let dummyMessage: Message;
 
 	beforeEach(() => {
-		// Default dummyMessage setup
 		dummyMessage = {
 			id: '1',
 			role: 'assistant',
