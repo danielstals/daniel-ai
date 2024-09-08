@@ -12,7 +12,7 @@ export default async function Home() {
 	return (
 		<div className='flex w-full max-w-[800px] grow flex-col self-center pt-[20px] max-sm:overflow-y-hidden'>
 			<h2 className='mb-3 block text-lg font-semibold text-foreground sm:text-2xl md:text-3xl'>
-				Hi, ik ben Daniel Stals
+				Hi, ik ben Daniel Stals!
 				<br />
 				Wat zou je graag willen weten?
 			</h2>
