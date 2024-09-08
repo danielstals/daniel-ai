@@ -6,7 +6,7 @@ const createJestConfig = nextJest({
 	dir: './',
 });
 
-const config: Config = {
+export const jestBaseConfig: Config = {
 	// Automatically clear mock calls, instances, contexts and results before every test
 	clearMocks: true,
 	// Indicates whether the coverage information should be collected while executing the test
@@ -23,6 +23,10 @@ const config: Config = {
 	moduleNameMapper: {
 		'^@/(.*)$': '<rootDir>/src/$1',
 	},
+	// Reducing noise in the output by limiting the number of worker threads in CI
+	maxWorkers: '50%',
+	// Run tests in CI mode, where the terminal has limited capabilities
+	ci: true,
 };
 
-export default createJestConfig(config);
+export default createJestConfig(jestBaseConfig);
