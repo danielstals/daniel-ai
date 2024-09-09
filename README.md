@@ -21,9 +21,11 @@ The AI chatbot is built using the following technologies:
 - **Tailwind CSS**: For styling and responsive design.
 - **Shadcn and Radix UI**: For accessible and customizable UI components.
 
-## 📝 License
+## 📜 License
 
-This project is licensed under the [MIT License](LICENSE).
+© 2024 Daniel Stals. All rights reserved.
+
+All rights reserved. You are not permitted to use, copy, modify, distribute, or replicate this code in any way without express written permission from the author.
 
 ## 🛠️ Issues and Contributions
 
