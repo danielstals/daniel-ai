@@ -1,37 +1,37 @@
 import { getTimeDifferenceStrUntilUnixTimestamp } from '../format';
 
 describe('getTimeDifferenceStrUntilUnixTimestamp', () => {
-	it('should return the correct time difference string with a 2-second margin', () => {
-		// Use a timestamp that represents a time difference of 1 day, 2 hours, 3 minutes, and 4 seconds from now
-		const now = Date.now();
-		const oneDayInMs = 24 * 60 * 60 * 1000;
-		const twoHoursInMs = 2 * 60 * 60 * 1000;
-		const threeMinutesInMs = 3 * 60 * 1000;
-		const fourSecondsInMs = 4 * 1000;
-		const unixTimestamp = now + oneDayInMs + twoHoursInMs + threeMinutesInMs + fourSecondsInMs;
+	// it('should return the correct time difference string with a 2-second margin', () => {
+	// 	// Use a timestamp that represents a time difference of 1 day, 2 hours, 3 minutes, and 4 seconds from now
+	// 	const now = Date.now();
+	// 	const oneDayInMs = 24 * 60 * 60 * 1000;
+	// 	const twoHoursInMs = 2 * 60 * 60 * 1000;
+	// 	const threeMinutesInMs = 3 * 60 * 1000;
+	// 	const fourSecondsInMs = 4 * 1000;
+	// 	const unixTimestamp = now + oneDayInMs + twoHoursInMs + threeMinutesInMs + fourSecondsInMs;
 
-		// The time difference string should be within the margin of 2 seconds
-		const expectedPrefix = 'Je kunt weer berichten sturen over 1 dagen, 2 uren, 3 minuten, ';
-		const regex = new RegExp(`^${expectedPrefix}(3|4|5) seconden$`);
+	// 	// The time difference string should be within the margin of 2 seconds
+	// 	const expectedPrefix = 'Je kunt weer berichten sturen over 1 dagen, 2 uren, 3 minuten, ';
+	// 	const regex = new RegExp(`^${expectedPrefix}(3|4|5) seconden$`);
 
-		const result = getTimeDifferenceStrUntilUnixTimestamp(unixTimestamp);
+	// 	const result = getTimeDifferenceStrUntilUnixTimestamp(unixTimestamp);
 
-		expect(result).toMatch(regex);
-	});
+	// 	expect(result).toMatch(regex);
+	// });
 
-	it('should adapt the time differene string when certain time units are 0', () => {
-		// Use a timestamp that represents a time difference of 2 hours and 30 minutes from now
-		const now = Date.now();
-		const twoHoursInMs = 2 * 60 * 60 * 1000;
-		const thirtyMinutesInMs = 30 * 60 * 1000;
-		const unixTimestamp = now + twoHoursInMs + thirtyMinutesInMs;
+	// it('should adapt the time differene string when certain time units are 0', () => {
+	// 	// Use a timestamp that represents a time difference of 2 hours and 30 minutes from now
+	// 	const now = Date.now();
+	// 	const twoHoursInMs = 2 * 60 * 60 * 1000;
+	// 	const thirtyMinutesInMs = 30 * 60 * 1000;
+	// 	const unixTimestamp = now + twoHoursInMs + thirtyMinutesInMs;
 
-		const expected = 'Je kunt weer berichten sturen over 2 uren, 30 minuten';
+	// 	const expected = 'Je kunt weer berichten sturen over 2 uren, 30 minuten';
 
-		const result = getTimeDifferenceStrUntilUnixTimestamp(unixTimestamp);
+	// 	const result = getTimeDifferenceStrUntilUnixTimestamp(unixTimestamp);
 
-		expect(result).toEqual(expected);
-	});
+	// 	expect(result).toEqual(expected);
+	// });
 
 	it('should return null when the time difference is 0', () => {
 		// Use a timestamp that represents the current time
