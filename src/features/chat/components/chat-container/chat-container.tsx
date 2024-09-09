@@ -131,7 +131,7 @@ export function ChatContainer({ sessionId, initialMessages }: ChatContainerProps
 								message={{
 									id: 'loading',
 									role: 'assistant',
-									content: 'Even geduld a.u.b',
+									content: 'Even geduld a.u.b..',
 								}}
 								isLoading={isLoading && lastMessageIsUser}
 							/>
@@ -162,6 +162,7 @@ export function ChatContainer({ sessionId, initialMessages }: ChatContainerProps
 					</DsButton>
 					<input
 						aria-label='chat-input'
+						data-testid='chat-input'
 						value={input}
 						onChange={handleInputChange}
 						onFocus={() => setIsOpen(true)}

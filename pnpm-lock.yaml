@@ -13,13 +13,16 @@ importers:
         version: 0.0.49(zod@3.23.8)
       '@langchain/community':
         specifier: ^0.2
-        version: 0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0)
+        version: 0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0)
       '@langchain/core':
         specifier: ^0.2
-        version: 0.2.30(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(openai@4.56.0(zod@3.23.8))
+        version: 0.2.30(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(openai@4.56.0(zod@3.23.8))
       '@langchain/openai':
         specifier: ^0.2
-        version: 0.2.8(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))
+        version: 0.2.8(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))
+      '@next/bundle-analyzer':
+        specifier: ^14.2.8
+        version: 14.2.8
       '@radix-ui/react-label':
         specifier: ^2.1.0
         version: 2.1.0(@types/react-dom@18.3.0)(@types/react@18.3.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -29,9 +32,6 @@ importers:
       '@radix-ui/react-toast':
         specifier: ^1.2.1
         version: 1.2.1(@types/react-dom@18.3.0)(@types/react@18.3.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@t3-oss/env-nextjs':
-        specifier: ^0.11.0
-        version: 0.11.1(typescript@5.5.4)(zod@3.23.8)
       '@tailwindcss/typography':
         specifier: ^0.5.15
         version: 0.5.15(tailwindcss@3.4.10(ts-node@10.9.2(@types/node@20.16.1)(typescript@5.5.4)))
@@ -46,7 +46,7 @@ importers:
         version: 6.5.0
       '@upstash/rag-chat':
         specifier: ^1.5.0
-        version: 1.5.0(ntbovx72ms6mma2d5yq7wfs3ye)
+        version: 1.5.0(textjrjmgr5ug3femjput6koly)
       '@upstash/ratelimit':
         specifier: ^2.0.2
         version: 2.0.2
@@ -55,10 +55,10 @@ importers:
         version: 1.34.0
       '@vercel/analytics':
         specifier: ^1.3.1
-        version: 1.3.1(next@14.2.5(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+        version: 1.3.1(next@14.2.5(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       '@vercel/speed-insights':
         specifier: ^1.0.12
-        version: 1.0.12(next@14.2.5(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(svelte@4.2.19)(vue@3.4.38(typescript@5.5.4))
+        version: 1.0.12(next@14.2.5(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(svelte@4.2.19)(vue@3.4.38(typescript@5.5.4))
       ai:
         specifier: ^3.3.11
         version: 3.3.19(openai@4.56.0(zod@3.23.8))(react@18.3.1)(sswr@2.1.0(svelte@4.2.19))(svelte@4.2.19)(vue@3.4.38(typescript@5.5.4))(zod@3.23.8)
@@ -76,16 +76,13 @@ importers:
         version: 8.2.0(react@18.3.1)
       langchain:
         specifier: ^0.2
-        version: 0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0)
-      lottie-react:
-        specifier: ^2.4.0
-        version: 2.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0)
       lucide-react:
         specifier: ^0.428.0
         version: 0.428.0(react@18.3.1)
       next:
         specifier: 14.2.5
-        version: 14.2.5(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 14.2.5(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-themes:
         specifier: ^0.3.0
         version: 0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -126,6 +123,9 @@ importers:
       '@eslint/eslintrc':
         specifier: ^3.1.0
         version: 3.1.0
+      '@playwright/test':
+        specifier: ^1.47.0
+        version: 1.47.0
       '@testing-library/react':
         specifier: ^16.0.1
         version: 16.0.1(@testing-library/dom@10.4.0)(@types/react-dom@18.3.0)(@types/react@18.3.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -539,6 +539,10 @@ packages:
   '@datastax/astra-db-ts@1.4.1':
     resolution: {integrity: sha512-qv9qOQ8+g9VV+oXeTMOPD0Vn746u2W1ywwsO95hHBGI3Kti1Fq25qm6XFEQzNMgO+HLgCR/Ewj6IGuQq3Elcpg==}
     engines: {node: '>=14.0.0'}
+
+  '@discoveryjs/json-ext@0.5.7':
+    resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==}
+    engines: {node: '>=10.0.0'}
 
   '@emnapi/runtime@1.2.0':
     resolution: {integrity: sha512-bV21/9LQmcQeCPEg3BDFtvwL6cwiTMksYNWQQ4KOxCZikEGalWtenoZ0wCiukJINlGCIi2KXx01g4FoH/LxpzQ==}
@@ -1319,6 +1323,9 @@ packages:
   '@mistralai/mistralai@0.4.0':
     resolution: {integrity: sha512-KmFzNro1RKxIFh19J3osmUQhucefBBauMXN5fa9doG6dT9OHR/moBvvn+riVlR7c0AVfuxO8Dfa03AyLYYzbyg==}
 
+  '@next/bundle-analyzer@14.2.8':
+    resolution: {integrity: sha512-1AVsLkZhCsLwY9u7WLw6TOdYbSiAqz2avpJXPJBfIU7zvYpGiHzZkAJLSdbf9o3DwyFVoxTuDrErj6NmgDSWVg==}
+
   '@next/env@14.2.5':
     resolution: {integrity: sha512-/zZGkrTOsraVfYjGP8uM0p6r0BDT6xWpkjdVbcz66PJVSpwXX3yNiRycxAuDfBKGWBrZBXRuK/YVlkNgxHGwmA==}
 
@@ -1412,6 +1419,14 @@ packages:
   '@pkgr/core@0.1.1':
     resolution: {integrity: sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
+
+  '@playwright/test@1.47.0':
+    resolution: {integrity: sha512-SgAdlSwYVpToI4e/IH19IHHWvoijAYH5hu2MWSXptRypLSnzj51PcGD+rsOXFayde4P9ZLi+loXVwArg6IUkCA==}
+    engines: {node: '>=18'}
+    hasBin: true
+
+  '@polka/url@1.0.0-next.25':
+    resolution: {integrity: sha512-j7P6Rgr3mmtdkeDGTe0E/aYyWEWVtc5yFXtHCRHs28/jptDEWfaVOc5T7cblqy1XKPPfCxJc/8DwQ5YgLOZOVQ==}
 
   '@radix-ui/primitive@1.1.0':
     resolution: {integrity: sha512-4Z8dn6Upk0qk4P74xBhZ6Hd/w0mPEzOOLxy4xiPXOXqjF7jZS0VAKk7/x/H6FyY2zCkYJqePf1G5KmkmNJ4RBA==}
@@ -1606,24 +1621,6 @@ packages:
 
   '@swc/helpers@0.5.5':
     resolution: {integrity: sha512-KGYxvIOXcceOAbEk4bi/dVLEK9z8sZ0uBB3Il5b1rhfClSpcX0yfRO0KmTkqR2cnQDymwLB+25ZyMzICg/cm/A==}
-
-  '@t3-oss/env-core@0.11.1':
-    resolution: {integrity: sha512-MaxOwEoG1ntCFoKJsS7nqwgcxLW1SJw238AJwfJeaz3P/8GtkxXZsPPolsz1AdYvUTbe3XvqZ/VCdfjt+3zmKw==}
-    peerDependencies:
-      typescript: '>=5.0.0'
-      zod: ^3.0.0
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-
-  '@t3-oss/env-nextjs@0.11.1':
-    resolution: {integrity: sha512-rx2XL9+v6wtOqLNJbD5eD8OezKlQD1BtC0WvvtHwBgK66jnF5+wGqtgkKK4Ygie1LVmoDClths2T4tdFmRvGrQ==}
-    peerDependencies:
-      typescript: '>=5.0.0'
-      zod: ^3.0.0
-    peerDependenciesMeta:
-      typescript:
-        optional: true
 
   '@tailwindcss/typography@0.5.15':
     resolution: {integrity: sha512-AqhlCXl+8grUz8uqExv5OTtgpjuVIwFTSXTrh8y9/pw6q2ek7fJ+Y8ZEVw7EB2DCcuCOtEjf9w3+J3rzts01uA==}
@@ -2500,6 +2497,9 @@ packages:
   date-fns@3.6.0:
     resolution: {integrity: sha512-fRHTG8g/Gif+kSh50gaGEdToemgfj74aRX3swtiouboip5JDLAyDE9F11nHMIcvOaXeOC6D7SpNhi7uFyB7Uww==}
 
+  debounce@1.2.1:
+    resolution: {integrity: sha512-XRRe6Glud4rd/ZGQfiV1ruXSfbvfJedlV9Y6zOlP+2K04vBYiJEte6stfFkCP03aMnY5tsipamumUjL14fofug==}
+
   debug@3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
     peerDependencies:
@@ -2629,6 +2629,9 @@ packages:
   dotenv@16.4.5:
     resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==}
     engines: {node: '>=12'}
+
+  duplexer@0.1.2:
+    resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
 
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
@@ -3083,6 +3086,11 @@ packages:
   fs.realpath@1.0.0:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
 
+  fsevents@2.3.2:
+    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
+    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
+    os: [darwin]
+
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
@@ -3182,6 +3190,10 @@ packages:
 
   graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
+
+  gzip-size@6.0.0:
+    resolution: {integrity: sha512-ax7ZYomf6jqPTQ4+XCpUGyXKHk5WweS+e05MBO4/y3WJ5RkmPXNKvX+bx1behVILVwr6JSQvZAku021CHPXG3Q==}
+    engines: {node: '>=10'}
 
   has-bigints@1.0.2:
     resolution: {integrity: sha512-tSvCKtBr9lkF0Ex0aQiP9N+OpV4zi2r/Nee5VkRDbaqv35RLYMzbwQfFSZZH0kR+Rd6302UJZ2p/bJCEoR3VoQ==}
@@ -3420,6 +3432,10 @@ packages:
   is-plain-obj@4.1.0:
     resolution: {integrity: sha512-+Pgi+vMuUNkJyExiMBt5IlFoMyKnr5zhJ4Uspz58WOhBF5QoIZkFyNHIbBAtHwzVAgk5RtndVNsDRN61/mmDqg==}
     engines: {node: '>=12'}
+
+  is-plain-object@5.0.0:
+    resolution: {integrity: sha512-VRSzKkbMm5jMDoKLbltAkFQ5Qr7VDiTFGXxYFXXowVj387GeGNOCsOH6Msy00SGZ3Fp84b1Naa1psqgcCIEP5Q==}
+    engines: {node: '>=0.10.0'}
 
   is-potential-custom-element-name@1.0.1:
     resolution: {integrity: sha512-bCYeRA2rVibKZd+s2625gGnGF/t7DSqDs4dP7CrLA1m7jKWz6pps0LpYLJN8Q64HtmPKJ1hrN3nzPNKFEKOUiQ==}
@@ -4010,15 +4026,6 @@ packages:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
     hasBin: true
 
-  lottie-react@2.4.0:
-    resolution: {integrity: sha512-pDJGj+AQlnlyHvOHFK7vLdsDcvbuqvwPZdMlJ360wrzGFurXeKPr8SiRCjLf3LrNYKANQtSsh5dz9UYQHuqx4w==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-
-  lottie-web@5.12.2:
-    resolution: {integrity: sha512-uvhvYPC8kGPjXT3MyKMrL3JitEAmDMp30lVkuq/590Mw9ok6pWcFCwXJveo0t5uqYw1UREQHofD+jVpdjBv8wg==}
-
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
 
@@ -4195,6 +4202,10 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
+  mrmime@2.0.0:
+    resolution: {integrity: sha512-eu38+hdgojoyq63s+yTpN4XMBdt5l8HhMhc4VKLO9KM5caLIBvUm4thi7fFaxyTmCKeNnXZ5pAlBwCUnhA09uw==}
+    engines: {node: '>=10'}
+
   ms@2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
 
@@ -4357,6 +4368,10 @@ packages:
   openapi-types@12.1.3:
     resolution: {integrity: sha512-N4YtSYJqghVu4iek2ZUvcN/0aqH1kRDuNqzcycDxhOUpg7GdvLa2F3DgS6yBNhInhv2r/6I0Flkn7CqL8+nIcw==}
 
+  opener@1.5.2:
+    resolution: {integrity: sha512-ur5UIdyw5Y7yEj9wLzhqXiy6GZ3Mwx0yGI+5sMn2r0N0v3cKJvUmFH5yPP+WXh9e0xfyzyJX95D8l088DNFj7A==}
+    hasBin: true
+
   optionator@0.9.4:
     resolution: {integrity: sha512-6IpQ7mKUxRcZNLIObR0hz7lxsapSSIYNZJwXPGeF0mTVqGKFIXj1DQcMoT22S3ROcLyY/rz0PWaWZ9ayWmad9g==}
     engines: {node: '>= 0.8.0'}
@@ -4494,6 +4509,16 @@ packages:
   pkg-dir@4.2.0:
     resolution: {integrity: sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==}
     engines: {node: '>=8'}
+
+  playwright-core@1.47.0:
+    resolution: {integrity: sha512-1DyHT8OqkcfCkYUD9zzUTfg7EfTd+6a8MkD/NWOvjo0u/SCNd5YmY/lJwFvUZOxJbWNds+ei7ic2+R/cRz/PDg==}
+    engines: {node: '>=18'}
+    hasBin: true
+
+  playwright@1.47.0:
+    resolution: {integrity: sha512-jOWiRq2pdNAX/mwLiwFYnPHpEZ4rM+fRSQpRHwEwZlP2PUANvL3+aJOF/bvISMhFD30rqMxUB4RJx9aQbfh4Ww==}
+    engines: {node: '>=18'}
+    hasBin: true
 
   possible-typed-array-names@1.0.0:
     resolution: {integrity: sha512-d7Uw+eZoloe0EHDIYoe+bQ5WXnGMOpmiZFTuMWCwpjzzkL2nTjcKiAk4hh8TjnGye2TwWOk3UXucZ+3rbmBa8Q==}
@@ -4805,6 +4830,10 @@ packages:
   simple-swizzle@0.2.2:
     resolution: {integrity: sha512-JA//kQgZtbuY83m+xT+tXJkmJncGMTFT+C+g2h2R9uxkYIrE2yy9sgmcLhCnw57/WSD+Eh3J97FPEDFnbXnDUg==}
 
+  sirv@2.0.4:
+    resolution: {integrity: sha512-94Bdh3cC2PKrbgSOUqTiGPWVZeSiXfKOVZNJniWoqrWrRkB1CJzBU3NEbiTsPcYy1lDsANA/THzS+9WBiy5nfQ==}
+    engines: {node: '>= 10'}
+
   sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
 
@@ -5049,6 +5078,10 @@ packages:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
 
+  totalist@3.0.1:
+    resolution: {integrity: sha512-sf4i37nQ2LBx4m3wB74y+ubopq6W/dIzXg0FDGjsYnZHVa1Da8FH853wlL2gtUhg+xJXjfk3kUZS3BRoQeoQBQ==}
+    engines: {node: '>=6'}
+
   tough-cookie@4.1.4:
     resolution: {integrity: sha512-Loo5UUvLD9ScZ6jh8beX1T6sO1w2/MpCRpEP7V280GKMVUQ0Jzar2U3UJPsrdbziLEMMhu3Ujnq//rhiFuIeag==}
     engines: {node: '>=6'}
@@ -5260,6 +5293,11 @@ packages:
     resolution: {integrity: sha512-VwddBukDzu71offAQR975unBIGqfKZpM+8ZX6ySk8nYhVoo5CYaZyzt3YBvYtRtO+aoGlqxPg/B87NGVZ/fu6g==}
     engines: {node: '>=12'}
 
+  webpack-bundle-analyzer@4.10.1:
+    resolution: {integrity: sha512-s3P7pgexgT/HTUSYgxJyn28A+99mmLq4HsJepMPzu0R8ImJc52QNqaFYW1Z2z2uIb1/J3eYgaAWVpaC+v/1aAQ==}
+    engines: {node: '>= 10.13.0'}
+    hasBin: true
+
   whatwg-encoding@2.0.0:
     resolution: {integrity: sha512-p41ogyeMUrw3jWclHWTQg1k05DSVXPLcVxRTYsXUk+ZooOCZLcoYgPZ/HL/D/N+uQPOtcp1me1WhBEaX02mhWg==}
     engines: {node: '>=12'}
@@ -5325,6 +5363,18 @@ packages:
   write-file-atomic@4.0.2:
     resolution: {integrity: sha512-7KxauUdBmSdWnmpaGFg+ppNjKF8uNLry8LyzjauQDOVONfFLNKrKvQOxZ/VuTIcS/gge/YNahf5RIIQWTSarlg==}
     engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
+
+  ws@7.5.10:
+    resolution: {integrity: sha512-+dbF1tHwZpXcbOJdVOkzLDxZP1ailvSxM6ZweXTegylPny803bFhA+vqBYw4s31NSAk4S2Qz+AKXK9a4wkdjcQ==}
+    engines: {node: '>=8.3.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: ^5.0.2
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
 
   ws@8.18.0:
     resolution: {integrity: sha512-8VbfWfHLbbwu3+N6OKsOMpBdT4kXPDDB9cJk2bJ6mh9ucxdlnNvH1e+roYkKmN9Nxw2yjz7VzeO9oOz2zJ04Pw==}
@@ -5734,6 +5784,8 @@ snapshots:
       typed-emitter: 2.1.0
       uuidv7: 0.6.3
     optional: true
+
+  '@discoveryjs/json-ext@0.5.7': {}
 
   '@emnapi/runtime@1.2.0':
     dependencies:
@@ -6150,7 +6202,7 @@ snapshots:
   '@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8))':
     dependencies:
       '@anthropic-ai/sdk': 0.25.2
-      '@langchain/core': 0.2.30(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(openai@4.56.0(zod@3.23.8))
+      '@langchain/core': 0.2.30(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(openai@4.56.0(zod@3.23.8))
       fast-xml-parser: 4.4.1
       zod: 3.23.8
       zod-to-json-schema: 3.23.2(zod@3.23.8)
@@ -6160,16 +6212,16 @@ snapshots:
       - openai
     optional: true
 
-  '@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0)':
+  '@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0)':
     dependencies:
-      '@langchain/core': 0.2.30(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(openai@4.56.0(zod@3.23.8))
-      '@langchain/openai': 0.2.8(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))
+      '@langchain/core': 0.2.30(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(openai@4.56.0(zod@3.23.8))
+      '@langchain/openai': 0.2.8(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))
       binary-extensions: 2.3.0
       expr-eval: 2.0.2
       flat: 5.0.2
       js-yaml: 4.1.0
-      langchain: 0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0)
-      langsmith: 0.1.47(mlcz42he5ghvqnmbryjbzshiai)
+      langchain: 0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0)
+      langsmith: 0.1.47(ayfjuuz5ngakh672yhgm5gooru)
       uuid: 10.0.0
       zod: 3.23.8
       zod-to-json-schema: 3.23.2(zod@3.23.8)
@@ -6186,6 +6238,7 @@ snapshots:
       jsdom: 20.0.3
       lodash: 4.17.21
       pdf-parse: 1.1.1
+      playwright: 1.47.0
       ws: 8.18.0
     transitivePeerDependencies:
       - '@gomomento/sdk-web'
@@ -6205,13 +6258,13 @@ snapshots:
       - peggy
       - pyodide
 
-  '@langchain/core@0.2.30(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(openai@4.56.0(zod@3.23.8))':
+  '@langchain/core@0.2.30(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(openai@4.56.0(zod@3.23.8))':
     dependencies:
       ansi-styles: 5.2.0
       camelcase: 6.3.0
       decamelize: 1.2.0
       js-tiktoken: 1.0.14
-      langsmith: 0.1.47(mlcz42he5ghvqnmbryjbzshiai)
+      langsmith: 0.1.47(ayfjuuz5ngakh672yhgm5gooru)
       mustache: 4.2.0
       p-queue: 6.6.2
       p-retry: 4.6.2
@@ -6224,7 +6277,7 @@ snapshots:
 
   '@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8))':
     dependencies:
-      '@langchain/core': 0.2.30(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(openai@4.56.0(zod@3.23.8))
+      '@langchain/core': 0.2.30(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(openai@4.56.0(zod@3.23.8))
       '@mistralai/mistralai': 0.4.0
       uuid: 10.0.0
       zod: 3.23.8
@@ -6235,9 +6288,9 @@ snapshots:
       - openai
     optional: true
 
-  '@langchain/openai@0.2.8(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))':
+  '@langchain/openai@0.2.8(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))':
     dependencies:
-      '@langchain/core': 0.2.30(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(openai@4.56.0(zod@3.23.8))
+      '@langchain/core': 0.2.30(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(openai@4.56.0(zod@3.23.8))
       js-tiktoken: 1.0.14
       openai: 4.56.0(zod@3.23.8)
       zod: 3.23.8
@@ -6246,9 +6299,9 @@ snapshots:
       - encoding
       - langchain
 
-  '@langchain/textsplitters@0.0.3(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(openai@4.56.0(zod@3.23.8))':
+  '@langchain/textsplitters@0.0.3(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(openai@4.56.0(zod@3.23.8))':
     dependencies:
-      '@langchain/core': 0.2.30(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(openai@4.56.0(zod@3.23.8))
+      '@langchain/core': 0.2.30(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(openai@4.56.0(zod@3.23.8))
       js-tiktoken: 1.0.14
     transitivePeerDependencies:
       - langchain
@@ -6260,6 +6313,13 @@ snapshots:
     transitivePeerDependencies:
       - encoding
     optional: true
+
+  '@next/bundle-analyzer@14.2.8':
+    dependencies:
+      webpack-bundle-analyzer: 4.10.1
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
 
   '@next/env@14.2.5': {}
 
@@ -6322,6 +6382,12 @@ snapshots:
     optional: true
 
   '@pkgr/core@0.1.1': {}
+
+  '@playwright/test@1.47.0':
+    dependencies:
+      playwright: 1.47.0
+
+  '@polka/url@1.0.0-next.25': {}
 
   '@radix-ui/primitive@1.1.0': {}
 
@@ -6487,19 +6553,6 @@ snapshots:
     dependencies:
       '@swc/counter': 0.1.3
       tslib: 2.7.0
-
-  '@t3-oss/env-core@0.11.1(typescript@5.5.4)(zod@3.23.8)':
-    dependencies:
-      zod: 3.23.8
-    optionalDependencies:
-      typescript: 5.5.4
-
-  '@t3-oss/env-nextjs@0.11.1(typescript@5.5.4)(zod@3.23.8)':
-    dependencies:
-      '@t3-oss/env-core': 0.11.1(typescript@5.5.4)(zod@3.23.8)
-      zod: 3.23.8
-    optionalDependencies:
-      typescript: 5.5.4
 
   '@tailwindcss/typography@0.5.15(tailwindcss@3.4.10(ts-node@10.9.2(@types/node@20.16.1)(typescript@5.5.4)))':
     dependencies:
@@ -6885,12 +6938,12 @@ snapshots:
     dependencies:
       '@upstash/redis': 1.34.0
 
-  '@upstash/rag-chat@1.5.0(ntbovx72ms6mma2d5yq7wfs3ye)':
+  '@upstash/rag-chat@1.5.0(textjrjmgr5ug3femjput6koly)':
     dependencies:
       '@ai-sdk/openai': 0.0.44(zod@3.23.8)
-      '@langchain/community': 0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0)
-      '@langchain/core': 0.2.30(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(openai@4.56.0(zod@3.23.8))
-      '@langchain/openai': 0.2.8(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))
+      '@langchain/community': 0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0)
+      '@langchain/core': 0.2.30(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(openai@4.56.0(zod@3.23.8))
+      '@langchain/openai': 0.2.8(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))
       '@upstash/ratelimit': 2.0.2
       '@upstash/redis': 1.34.0
       '@upstash/vector': 1.1.5
@@ -6898,7 +6951,7 @@ snapshots:
       cheerio: 1.0.0
       d3-dsv: 3.0.1
       html-to-text: 9.0.5
-      langchain: 0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0)
+      langchain: 0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0)
       nanoid: 5.0.7
       pdf-parse: 1.1.1
       react: 18.3.1
@@ -6907,7 +6960,7 @@ snapshots:
     optionalDependencies:
       '@langchain/anthropic': 0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8))
       '@langchain/mistralai': 0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8))
-      langsmith: 0.1.47(mlcz42he5ghvqnmbryjbzshiai)
+      langsmith: 0.1.47(ayfjuuz5ngakh672yhgm5gooru)
     transitivePeerDependencies:
       - '@aws-crypto/sha256-js'
       - '@aws-sdk/client-bedrock-agent-runtime'
@@ -7053,16 +7106,16 @@ snapshots:
 
   '@upstash/vector@1.1.5': {}
 
-  '@vercel/analytics@1.3.1(next@14.2.5(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
+  '@vercel/analytics@1.3.1(next@14.2.5(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
     dependencies:
       server-only: 0.0.1
     optionalDependencies:
-      next: 14.2.5(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next: 14.2.5(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
 
-  '@vercel/speed-insights@1.0.12(next@14.2.5(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(svelte@4.2.19)(vue@3.4.38(typescript@5.5.4))':
+  '@vercel/speed-insights@1.0.12(next@14.2.5(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(svelte@4.2.19)(vue@3.4.38(typescript@5.5.4))':
     optionalDependencies:
-      next: 14.2.5(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next: 14.2.5(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       svelte: 4.2.19
       vue: 3.4.38(typescript@5.5.4)
@@ -7672,6 +7725,8 @@ snapshots:
 
   date-fns@3.6.0: {}
 
+  debounce@1.2.1: {}
+
   debug@3.2.7:
     dependencies:
       ms: 2.1.3
@@ -7788,6 +7843,8 @@ snapshots:
       domhandler: 5.0.3
 
   dotenv@16.4.5: {}
+
+  duplexer@0.1.2: {}
 
   eastasianwidth@0.2.0: {}
 
@@ -8475,6 +8532,9 @@ snapshots:
 
   fs.realpath@1.0.0: {}
 
+  fsevents@2.3.2:
+    optional: true
+
   fsevents@2.3.3:
     optional: true
 
@@ -8582,6 +8642,10 @@ snapshots:
   graceful-fs@4.2.11: {}
 
   graphemer@1.4.0: {}
+
+  gzip-size@6.0.0:
+    dependencies:
+      duplexer: 0.1.2
 
   has-bigints@1.0.2: {}
 
@@ -8820,6 +8884,8 @@ snapshots:
   is-path-inside@3.0.3: {}
 
   is-plain-obj@4.1.0: {}
+
+  is-plain-object@5.0.0: {}
 
   is-potential-custom-element-name@1.0.1: {}
 
@@ -9368,16 +9434,16 @@ snapshots:
 
   kleur@3.0.3: {}
 
-  langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0):
+  langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0):
     dependencies:
-      '@langchain/core': 0.2.30(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(openai@4.56.0(zod@3.23.8))
-      '@langchain/openai': 0.2.8(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))
-      '@langchain/textsplitters': 0.0.3(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(openai@4.56.0(zod@3.23.8))
+      '@langchain/core': 0.2.30(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(openai@4.56.0(zod@3.23.8))
+      '@langchain/openai': 0.2.8(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))
+      '@langchain/textsplitters': 0.0.3(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(openai@4.56.0(zod@3.23.8))
       binary-extensions: 2.3.0
       js-tiktoken: 1.0.14
       js-yaml: 4.1.0
       jsonpointer: 5.0.1
-      langsmith: 0.1.47(mlcz42he5ghvqnmbryjbzshiai)
+      langsmith: 0.1.47(ayfjuuz5ngakh672yhgm5gooru)
       openapi-types: 12.1.3
       p-retry: 4.6.2
       uuid: 10.0.0
@@ -9386,7 +9452,7 @@ snapshots:
       zod-to-json-schema: 3.23.2(zod@3.23.8)
     optionalDependencies:
       '@langchain/anthropic': 0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8))
-      '@langchain/community': 0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0)
+      '@langchain/community': 0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0)
       '@langchain/mistralai': 0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8))
       cheerio: 1.0.0
       d3-dsv: 3.0.1
@@ -9396,12 +9462,13 @@ snapshots:
       jsdom: 20.0.3
       pdf-parse: 1.1.1
       peggy: 3.0.2
+      playwright: 1.47.0
       ws: 8.18.0
     transitivePeerDependencies:
       - encoding
       - openai
 
-  langsmith@0.1.47(mlcz42he5ghvqnmbryjbzshiai):
+  langsmith@0.1.47(ayfjuuz5ngakh672yhgm5gooru):
     dependencies:
       '@types/uuid': 10.0.0
       commander: 10.0.1
@@ -9410,8 +9477,8 @@ snapshots:
       semver: 7.6.3
       uuid: 10.0.0
     optionalDependencies:
-      '@langchain/core': 0.2.30(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(openai@4.56.0(zod@3.23.8))
-      langchain: 0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(ws@8.18.0)
+      '@langchain/core': 0.2.30(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(openai@4.56.0(zod@3.23.8))
+      langchain: 0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0)
       openai: 4.56.0(zod@3.23.8)
 
   language-subtag-registry@0.3.23: {}
@@ -9490,14 +9557,6 @@ snapshots:
   loose-envify@1.4.0:
     dependencies:
       js-tokens: 4.0.0
-
-  lottie-react@2.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
-    dependencies:
-      lottie-web: 5.12.2
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-
-  lottie-web@5.12.2: {}
 
   lru-cache@10.4.3: {}
 
@@ -9789,6 +9848,8 @@ snapshots:
 
   mkdirp@1.0.4: {}
 
+  mrmime@2.0.0: {}
+
   ms@2.1.2: {}
 
   ms@2.1.3: {}
@@ -9814,7 +9875,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  next@14.2.5(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  next@14.2.5(@babel/core@7.25.2)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@next/env': 14.2.5
       '@swc/helpers': 0.5.5
@@ -9836,6 +9897,7 @@ snapshots:
       '@next/swc-win32-ia32-msvc': 14.2.5
       '@next/swc-win32-x64-msvc': 14.2.5
       '@opentelemetry/api': 1.9.0
+      '@playwright/test': 1.47.0
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
@@ -9944,6 +10006,8 @@ snapshots:
       - encoding
 
   openapi-types@12.1.3: {}
+
+  opener@1.5.2: {}
 
   optionator@0.9.4:
     dependencies:
@@ -10090,6 +10154,14 @@ snapshots:
   pkg-dir@4.2.0:
     dependencies:
       find-up: 4.1.0
+
+  playwright-core@1.47.0: {}
+
+  playwright@1.47.0:
+    dependencies:
+      playwright-core: 1.47.0
+    optionalDependencies:
+      fsevents: 2.3.2
 
   possible-typed-array-names@1.0.0: {}
 
@@ -10443,6 +10515,12 @@ snapshots:
     dependencies:
       is-arrayish: 0.3.2
 
+  sirv@2.0.4:
+    dependencies:
+      '@polka/url': 1.0.0-next.25
+      mrmime: 2.0.0
+      totalist: 3.0.1
+
   sisteransi@1.0.5: {}
 
   slash@3.0.0: {}
@@ -10730,6 +10808,8 @@ snapshots:
     dependencies:
       is-number: 7.0.0
 
+  totalist@3.0.1: {}
+
   tough-cookie@4.1.4:
     dependencies:
       psl: 1.9.0
@@ -10967,6 +11047,25 @@ snapshots:
 
   webidl-conversions@7.0.0: {}
 
+  webpack-bundle-analyzer@4.10.1:
+    dependencies:
+      '@discoveryjs/json-ext': 0.5.7
+      acorn: 8.12.1
+      acorn-walk: 8.3.3
+      commander: 7.2.0
+      debounce: 1.2.1
+      escape-string-regexp: 4.0.0
+      gzip-size: 6.0.0
+      html-escaper: 2.0.2
+      is-plain-object: 5.0.0
+      opener: 1.5.2
+      picocolors: 1.0.1
+      sirv: 2.0.4
+      ws: 7.5.10
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+
   whatwg-encoding@2.0.0:
     dependencies:
       iconv-lite: 0.6.3
@@ -11057,6 +11156,8 @@ snapshots:
     dependencies:
       imurmurhash: 0.1.4
       signal-exit: 3.0.7
+
+  ws@7.5.10: {}
 
   ws@8.18.0: {}
 

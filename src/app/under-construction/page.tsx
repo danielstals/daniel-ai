@@ -1,6 +1,4 @@
-'use client';
-
-import { LazyLottie } from '@/components/ui/lazy-lottie/lazy-lottie';
+import Image from 'next/image';
 
 export default function UnderConstruction() {
 	return (
@@ -8,7 +6,14 @@ export default function UnderConstruction() {
 			<h2 className='text-3xl font-semibold text-foreground'>Under construction</h2>
 
 			<div className='relative w-full max-w-[400px]'>
-				<LazyLottie getAnimationData={() => fetch('/animations/under-construction.json').then((res) => res.json())} loop id='empty-box' />
+				<Image
+					src='/animations/placeholder.svg'
+					width={500}
+					height={500}
+					style={{ width: '100%', height: 'auto' }}
+					alt='Under construction placeholder'
+					priority
+				/>
 			</div>
 		</div>
 	);

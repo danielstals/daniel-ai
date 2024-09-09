@@ -50,7 +50,13 @@ export function PromptSuggestions({ className, onClick }: IPromptSuggestionsProp
 			{/* Grid for desktop screens only */}
 			<div className='hidden grid-cols-3 gap-4 sm:grid'>
 				{suggestedPrompts.map((prompt: IPromptSuggestion, index: number) => (
-					<PromptButton key={index} onClick={() => onClick(prompt.text)} text={prompt.text} icon={prompt.icon} />
+					<PromptButton
+						key={index}
+						onClick={() => onClick(prompt.text)}
+						text={prompt.text}
+						icon={prompt.icon}
+						data-testid='prompt-button'
+					/>
 				))}
 			</div>
 		</div>
