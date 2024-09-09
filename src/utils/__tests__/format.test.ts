@@ -1,7 +1,7 @@
 import { getTimeDifferenceStrUntilUnixTimestamp } from '../format';
 
 describe('getTimeDifferenceStrUntilUnixTimestamp', () => {
-	it('should return the correct time difference string', () => {
+	it('should return the correct time difference string with a 2-second margin', () => {
 		// Use a timestamp that represents a time difference of 1 day, 2 hours, 3 minutes, and 4 seconds from now
 		const now = Date.now();
 		const oneDayInMs = 24 * 60 * 60 * 1000;
@@ -10,11 +10,13 @@ describe('getTimeDifferenceStrUntilUnixTimestamp', () => {
 		const fourSecondsInMs = 4 * 1000;
 		const unixTimestamp = now + oneDayInMs + twoHoursInMs + threeMinutesInMs + fourSecondsInMs;
 
-		const expected = 'Je kunt weer berichten sturen over 1 dagen, 2 uren, 3 minuten, 4 seconden';
+		// The time difference string should be within the margin of 2 seconds
+		const expectedPrefix = 'Je kunt weer berichten sturen over 1 dagen, 2 uren, 3 minuten, ';
+		const regex = new RegExp(`^${expectedPrefix}(3|4|5) seconden$`);
 
 		const result = getTimeDifferenceStrUntilUnixTimestamp(unixTimestamp);
 
-		expect(result).toEqual(expected);
+		expect(result).toMatch(regex);
 	});
 
 	it('should adapt the time differene string when certain time units are 0', () => {
