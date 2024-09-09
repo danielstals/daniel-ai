@@ -34,6 +34,7 @@ jobs:
     needs: [test]
     name: Deploy to Production
     runs-on: ubuntu-latest
+    environment: Production
     steps:
       - uses: actions/checkout@v4
 
