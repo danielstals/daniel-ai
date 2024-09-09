@@ -23,10 +23,7 @@ export const jestBaseConfig: Config = {
 	moduleNameMapper: {
 		'^@/(.*)$': '<rootDir>/src/$1',
 	},
-	// Reducing noise in the output by limiting the number of worker threads in CI
-	maxWorkers: '50%',
-	// Run tests in CI mode, where the terminal has limited capabilities
-	ci: true,
+	testPathIgnorePatterns: ['/node_modules/', '/e2e/'],
 };
 
 export default createJestConfig(jestBaseConfig);

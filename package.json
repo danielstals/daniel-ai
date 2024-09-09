@@ -11,6 +11,8 @@
 		"test": "jest",
 		"test:ci": "jest --config jest.config.ci.ts --runInBand",
 		"test:watch": "jest --watch",
+		"test:e2e": "npx playwright test --ui",
+		"test:e2e:ci": "npx playwright test --config=playwright.config.ts --reporter=dot --timeout=10000",
 		"check-types": "tsc --project tsconfig.json --pretty --noEmit",
 		"generate": "npx ts-node ./scripts/generate.ts",
 		"generate-upstash": "npx ts-node ./scripts/generate-upstash.ts",
@@ -58,6 +60,7 @@
 	},
 	"devDependencies": {
 		"@eslint/eslintrc": "^3.1.0",
+		"@playwright/test": "^1.47.0",
 		"@testing-library/react": "^16.0.1",
 		"@types/jest": "^29.5.12",
 		"@types/node": "^20",

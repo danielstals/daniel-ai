@@ -84,5 +84,11 @@ module.exports = {
 				],
 			},
 		},
+		{
+			files: ['e2e/**/*.ts', 'e2e/**/*.tsx'],
+			rules: {
+				'testing-library/prefer-screen-queries': 'off',
+			},
+		},
 	],
 };

@@ -33,7 +33,7 @@ export default function RootLayout({
 		<html className='h-full' lang='en' suppressHydrationWarning>
 			<body className={`${inter.className} m-0 h-full antialiased`}>
 				<Providers>
-					<main className='flex h-full flex-col overflow-y-hidden px-6 py-8 sm:px-12 sm:pb-6 sm:pt-8 md:px-24'>
+					<main className='flex h-full flex-col overflow-y-auto px-6 py-8 sm:px-12 sm:pb-6 sm:pt-8 md:px-24'>
 						<Header title='Daniel.ai' />
 
 						{children}

@@ -162,6 +162,7 @@ export function ChatContainer({ sessionId, initialMessages }: ChatContainerProps
 					</DsButton>
 					<input
 						aria-label='chat-input'
+						data-testid='chat-input'
 						value={input}
 						onChange={handleInputChange}
 						onFocus={() => setIsOpen(true)}
