@@ -6,12 +6,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 
-import dotDotDot from '@/lib/animations/dot-dot-dot.json';
 import { CHAT_AVATAR_IMG_ALT } from '@/lib/constants/constants';
 import { cn } from '@/utils/cn';
 
 import avatar from '../../../../../public/images/avatar.jpg';
-import { LottieAnimation } from '../../../../components/ui/lottie-animation/lottie-animation';
 
 const chatMessageVariants = cva('flex items-center', {
 	variants: {
@@ -27,7 +25,7 @@ export interface ChatMessageProps extends VariantProps<typeof chatMessageVariant
 	isLoading?: boolean;
 }
 
-export function ChatMessage({ message: { role, content }, variant, className, isLoading }: ChatMessageProps): JSX.Element {
+export function ChatMessage({ message: { role, content }, variant, className }: ChatMessageProps): JSX.Element {
 	const isAiMessage = role === 'assistant';
 
 	return (
@@ -63,12 +61,6 @@ export function ChatMessage({ message: { role, content }, variant, className, is
 				>
 					{content}
 				</ReactMarkdown>
-
-				{isLoading && (
-					<div className='h-[15px] w-[40px] translate-y-[3px]'>
-						<LottieAnimation height={60} animationData={dotDotDot} />
-					</div>
-				)}
 			</div>
 		</div>
 	);
