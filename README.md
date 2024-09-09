@@ -1,24 +1,30 @@
 # Daniel.ai
 
-## Prerequisites
+This repository contains the source code for an AI chatbot built with [Next.js](https://nextjs.org/) and hosted on [Vercel](https://vercel.com/). This project is intended to showcase the code and architecture of the chatbot and is **not designed to be run locally by others**.
 
-Before you begin, ensure you have the following installed:
+## 🚨 Important Notice
 
-- Node.js (LTS version recommended)
-- npm (comes with Node.js)
+Please note that this repository is meant for demonstration purposes only. It is configured to run in a specific environment with custom environment variables and a pre-structured vector database, which are not provided here. **Cloning or running this project locally without the proper setup will result in errors.**
 
-## Installation
+## 🌐 Live Demo
 
-Install the required dependencies:
+To see the chatbot in action, please visit the live version hosted on Vercel: [Live Demo](https://danielstals.nl/)
 
-```bash
-pnpm install
-```
+## 💡 About This Project
 
-## Running the application
+The AI chatbot is built using the following technologies:
 
-To start the development server, run the following command:
+- **Next.js**: A powerful React framework for building scalable web applications.
+- **Upstash (Redis, VectorDB, RAG Chat)**: For efficient AI related data storage and retrieval.
+- **OpenAI API**: To power the AI capabilities of the chatbot.
+- **Jest and React Testing Library**: For unit and component testing.
+- **Tailwind CSS**: For styling and responsive design.
+- **Shadcn and Radix UI**: For accessible and customizable UI components.
 
-```bash
-pnpm start
-```
+## 📝 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## 🛠️ Issues and Contributions
+
+While this repository is a showcase and not intended for local use, you are welcome to explore the code and open issues for any questions or suggestions.
