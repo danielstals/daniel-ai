@@ -13,6 +13,7 @@
 		"test:watch": "jest --watch",
 		"test:e2e": "npx playwright test --ui",
 		"test:e2e:ci": "CI=true npx playwright test --config=playwright.config.ts --reporter=dot --output=playwright-report --timeout=10000",
+		"e2e:install": "npx pnpm exec playwright install --with-deps",
 		"check-types": "tsc --project tsconfig.json --pretty --noEmit",
 		"generate": "npx ts-node ./scripts/generate.ts",
 		"generate-upstash": "npx ts-node ./scripts/generate-upstash.ts",
