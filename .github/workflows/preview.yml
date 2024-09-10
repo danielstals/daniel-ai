@@ -36,9 +36,29 @@ jobs:
   e2e_tests:
     needs: [unit_tests]
     name: Run Playwright E2E Tests
+    timeout-minutes: 60
     runs-on: macos-latest
+    env:
+      TZ: Europe/Amsterdam
+
     steps:
-      - uses: './.github/workflows/e2e-reusable.yml'
+      - uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: ./.github/actions/pnpm-install
+
+      - name: Install playwright
+        uses: ./.github/actions/playwright-install
+
+      - name: Run Playwright
+        run: pnpm test:e2e:ci
+
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 10
 
   deploy_preview:
     needs: [unit_tests, e2e_tests]
