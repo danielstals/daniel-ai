@@ -3,6 +3,18 @@ name: Vercel Preview Deployment
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  TZ: Europe/Amsterdam
+  NEXT_PUBLIC_UNDER_CONSTRUCTION: false
+  LANGCHAIN_TRACING_V2: true
+  LANGCHAIN_CALLBACKS_BACKGROUND: true
+  OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+  LANGCHAIN_ENDPOINT: ${{ secrets.LANGCHAIN_ENDPOINT }}
+  LANGCHAIN_API_KEY: ${{ secrets.LANGCHAIN_API_KEY }}
+  LANGCHAIN_PROJECT: ${{ secrets.LANGCHAIN_PROJECT }}
+  UPSTASH_REDIS_REST_URL: ${{ secrets.UPSTASH_REDIS_REST_URL }}
+  UPSTASH_REDIS_REST_TOKEN: ${{ secrets.UPSTASH_REDIS_REST_TOKEN }}
+  UPSTASH_VECTOR_REST_URL: ${{ secrets.UPSTASH_VECTOR_REST_URL }}
+  UPSTASH_VECTOR_REST_TOKEN: ${{ secrets.UPSTASH_VECTOR_REST_TOKEN }}
 
 on:
   push:
@@ -11,6 +23,7 @@ on:
 
 jobs:
   lint:
+    name: Run Linter
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
@@ -37,19 +50,6 @@ jobs:
     name: Run Playwright E2E Tests
     timeout-minutes: 60
     runs-on: macos-latest
-    env:
-      TZ: Europe/Amsterdam
-      NEXT_PUBLIC_UNDER_CONSTRUCTION: false
-      LANGCHAIN_TRACING_V2: true
-      LANGCHAIN_CALLBACKS_BACKGROUND: true
-      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      LANGCHAIN_ENDPOINT: ${{ secrets.LANGCHAIN_ENDPOINT }}
-      LANGCHAIN_API_KEY: ${{ secrets.LANGCHAIN_API_KEY }}
-      LANGCHAIN_PROJECT: ${{ secrets.LANGCHAIN_PROJECT }}
-      UPSTASH_REDIS_REST_URL: ${{ secrets.UPSTASH_REDIS_REST_URL }}
-      UPSTASH_REDIS_REST_TOKEN: ${{ secrets.UPSTASH_REDIS_REST_TOKEN }}
-      UPSTASH_VECTOR_REST_URL: ${{ secrets.UPSTASH_VECTOR_REST_URL }}
-      UPSTASH_VECTOR_REST_TOKEN: ${{ secrets.UPSTASH_VECTOR_REST_TOKEN }}
 
     steps:
       - uses: actions/checkout@v4
