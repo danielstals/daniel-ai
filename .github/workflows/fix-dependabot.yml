@@ -3,7 +3,7 @@ name: Fix Dependabot
 on:
   pull_request:
     branches:
-      - dependabot/**
+      - 'dependabot/**'
 
 jobs:
   sync-lockfile:
