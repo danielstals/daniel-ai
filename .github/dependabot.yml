@@ -5,16 +5,59 @@
 
 version: 2
 updates:
-  - package-ecosystem: "github-actions" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: 'github-actions' # See documentation for possible values
+    directory: '/' # Location of package manifests
     schedule:
-      interval: "weekly"
-      
-  - package-ecosystem: "pnpm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    open-pull-requests-limit: 5
+      interval: 'daily'
     allow:
-      - dependency-type: "all"
-        update-types: ["version-update:semver-minor"]
+      - dependency-type: all
+    commit-message:
+      include: scope
+      prefix: '[github-actions] '
+    labels:
+      - github-actions
+      - dependencies
+    assignees:
+      - 'danielstals'
+    reviewers:
+      - 'danielstals'
+
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    allow:
+      - dependency-type: all
+    open-pull-requests-limit: 10
+    pull-request-branch-name:
+      separator: '/'
+    commit-message:
+      include: scope
+      prefix: '[dep|pnpm] '
+    labels:
+      - pnpm
+      - dependencies
+    versioning-strategy: increase-if-necessary
+    assignees:
+      - 'danielstals'
+    reviewers:
+      - 'danielstals'
+    groups:
+      breaking-security-updates:
+        applies-to: security-updates
+        update-types:
+          - major
+      security-updates:
+        applies-to: security-updates
+        update-types:
+          - minor
+          - patch
+      breaking-version-updates:
+        applies-to: version-updates
+        update-types:
+          - major
+      version-updates:
+        applies-to: version-updates
+        update-types:
+          - minor
+          - patch
