@@ -13,6 +13,10 @@ jobs:
       pull-requests: write
       contents: write
     steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -21,10 +25,6 @@ jobs:
       - uses: pnpm/action-setup@v4
         with:
           version: 9
-
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
 
       - run: pnpm i --lockfile-only
 
