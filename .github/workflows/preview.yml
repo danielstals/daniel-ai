@@ -22,7 +22,30 @@ on:
       - main
 
 jobs:
+  # https://github.com/dependabot/dependabot-core/issues/1736
+  dependabot_fix:
+    runs-on: macos-latest
+    if: startsWith(github.ref, 'refs/heads/dependabot/')
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: pnpm/action-setup@v2
+        with:
+          version: '^8'
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - run: pnpm i --lockfile-only
+      - run: |
+          git config --global user.name github-actions[bot]
+          git config --global user.email github-actions[bot]@users.noreply.github.com
+          git add pnpm-lock.yaml
+          git commit -m "chore: dependabot[bot] update pnpm-lock.yaml"
+          git push
+
   lint:
+    needs: [dependabot_fix]
     name: Run Linter
     runs-on: macos-latest
     steps:
@@ -35,6 +58,7 @@ jobs:
         run: pnpm lint
 
   unit_tests:
+    needs: [dependabot_fix]
     name: Run Jest Tests
     runs-on: macos-latest
     steps:
@@ -47,6 +71,7 @@ jobs:
         run: pnpm test:ci
 
   e2e_tests:
+    needs: [dependabot_fix]
     name: Run Playwright E2E Tests
     timeout-minutes: 60
     runs-on: macos-latest
@@ -76,7 +101,7 @@ jobs:
           retention-days: 10
 
   deploy_preview:
-    needs: [lint, unit_tests, e2e_tests]
+    needs: [dependabot_fix, lint, unit_tests, e2e_tests]
     name: Deploy to Preview
     runs-on: macos-latest
     environment: Preview
