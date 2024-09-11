@@ -86,9 +86,6 @@ jobs:
       - name: Install pnpm
         uses: ./.github/actions/pnpm-install
 
-      - name: Build Export
-        uses: ./.github/actions/nextjs-build-export
-
       - name: Install Vercel CLI
         run: npm install -g vercel@latest
 
