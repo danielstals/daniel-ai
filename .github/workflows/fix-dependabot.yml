@@ -1,9 +1,8 @@
 name: Fix Dependabot
 
-on:
-  pull_request:
-    branches:
-      - main
+on: pull_request_target
+
+permissions: read-all
 
 jobs:
   sync-lockfile:
@@ -26,10 +25,9 @@ jobs:
 
       - run: pnpm i --lockfile-only
 
-      - name: Commit lockfile changes
-        run: |
+      - run: |
           git config --global user.name github-actions[bot]
           git config --global user.email github-actions[bot]@users.noreply.github.com
           git add pnpm-lock.yaml
-          git commit -m "build(deps): update pnpm-lock.yaml" || echo "No changes to commit"
+          git commit -m "Update pnpm-lock.yaml"
           git push
