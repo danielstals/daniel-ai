@@ -3,11 +3,12 @@ name: Fix Dependabot
 on:
   pull_request:
     branches:
-      - 'dependabot/**'
+      - main
 
 jobs:
   sync-lockfile:
     runs-on: ubuntu-latest
+    if: startsWith(github.head_ref, 'dependabot/')
     permissions:
       pull-requests: write
       contents: write
