@@ -1,5 +1,5 @@
 import { ChatLayout } from '@/components/layouts/chat-layout/chat-layout';
-import { ChatContainer } from '@/features/chat/components/chat-container/chat-container';
+import { Chat } from '@/features/chat/components/chat/chat';
 
 import getSessionId from './actions/get-session-id';
 
@@ -20,7 +20,7 @@ export default async function Home() {
 			</span>
 
 			<ChatLayout>
-				<ChatContainer sessionId={sessionId} />
+				<Chat sessionId={sessionId} />
 			</ChatLayout>
 		</div>
 	);

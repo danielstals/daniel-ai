@@ -17,7 +17,7 @@ import { cn } from '@/utils/cn';
 import { ChatMessage } from '../chat-message/chat-message';
 import { PromptSuggestions } from '../prompt-suggestions/prompt-suggestions';
 
-type ChatContainerProps = {
+type ChatProps = {
 	sessionId: string;
 };
 
@@ -27,7 +27,7 @@ async function fetchInitialMessages(): Promise<Message[]> {
 	return response.json();
 }
 
-export function ChatContainer({ sessionId }: ChatContainerProps) {
+export function Chat({ sessionId }: ChatProps) {
 	const { data: initialMessages, isLoading: messagesLoading } = useQuery({
 		queryKey: ['initialMessages'],
 		queryFn: () => fetchInitialMessages(),
