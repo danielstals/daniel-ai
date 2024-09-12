@@ -24,7 +24,7 @@
 		"@langchain/community": "^0.2",
 		"@langchain/core": "^0.2",
 		"@langchain/openai": "^0.2",
-		"@next/bundle-analyzer": "^14.2.8",
+		"@next/bundle-analyzer": "^14.2.10",
 		"@radix-ui/react-label": "^2.1.0",
 		"@radix-ui/react-slot": "^1.1.0",
 		"@radix-ui/react-toast": "^1.2.1",

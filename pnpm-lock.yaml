@@ -21,8 +21,8 @@ importers:
         specifier: ^0.2
         version: 0.2.8(langchain@0.2.17(@langchain/anthropic@0.2.15(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(@langchain/community@0.2.31(@datastax/astra-db-ts@1.4.1)(@langchain/anthropic@0.2.15)(@langchain/mistralai@0.0.28)(@upstash/ratelimit@2.0.2)(@upstash/redis@1.34.0)(@upstash/vector@1.1.5)(cheerio@1.0.0)(crypto-js@4.2.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(lodash@4.17.21)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))(@langchain/mistralai@0.0.28(langchain@0.2.17)(openai@4.56.0(zod@3.23.8)))(cheerio@1.0.0)(d3-dsv@3.0.1)(fast-xml-parser@4.4.1)(html-to-text@9.0.5)(ignore@5.3.2)(jsdom@20.0.3)(openai@4.56.0(zod@3.23.8))(pdf-parse@1.1.1)(peggy@3.0.2)(playwright@1.47.0)(ws@8.18.0))
       '@next/bundle-analyzer':
-        specifier: ^14.2.8
-        version: 14.2.8
+        specifier: ^14.2.10
+        version: 14.2.10
       '@radix-ui/react-label':
         specifier: ^2.1.0
         version: 2.1.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1323,8 +1323,8 @@ packages:
   '@mistralai/mistralai@0.4.0':
     resolution: {integrity: sha512-KmFzNro1RKxIFh19J3osmUQhucefBBauMXN5fa9doG6dT9OHR/moBvvn+riVlR7c0AVfuxO8Dfa03AyLYYzbyg==}
 
-  '@next/bundle-analyzer@14.2.8':
-    resolution: {integrity: sha512-1AVsLkZhCsLwY9u7WLw6TOdYbSiAqz2avpJXPJBfIU7zvYpGiHzZkAJLSdbf9o3DwyFVoxTuDrErj6NmgDSWVg==}
+  '@next/bundle-analyzer@14.2.10':
+    resolution: {integrity: sha512-x9sMR1gHrX6zg5UapTJBjSEHmyG6GuSW1gWQXp4kJSNBQzKWFFhK4lQluNnyh0hP6j3p5Mxpq8uUOTYIgMgk3A==}
 
   '@next/env@14.2.5':
     resolution: {integrity: sha512-/zZGkrTOsraVfYjGP8uM0p6r0BDT6xWpkjdVbcz66PJVSpwXX3yNiRycxAuDfBKGWBrZBXRuK/YVlkNgxHGwmA==}
@@ -6363,7 +6363,7 @@ snapshots:
       - encoding
     optional: true
 
-  '@next/bundle-analyzer@14.2.8':
+  '@next/bundle-analyzer@14.2.10':
     dependencies:
       webpack-bundle-analyzer: 4.10.1
     transitivePeerDependencies:
