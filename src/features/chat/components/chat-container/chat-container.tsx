@@ -1,5 +1,6 @@
 'use client';
 
+import { useQuery } from '@tanstack/react-query';
 import { ChatRequestOptions, Message } from 'ai';
 import { useChat } from 'ai/react';
 import { Trash } from 'lucide-react';
@@ -9,6 +10,7 @@ import { FaArrowRight } from 'react-icons/fa';
 import { deleteHistory } from '@/app/actions/delete-history';
 import { ChatPlaceholder } from '@/components/ui/chat-placeholder/chat-placeholder';
 import { DsButton } from '@/components/ui/ds-button/ds-button';
+import { Spinner } from '@/components/ui/spinner/spinner';
 import { ChatError } from '@/features/chat/types/chat.types';
 import { cn } from '@/utils/cn';
 
@@ -17,16 +19,27 @@ import { PromptSuggestions } from '../prompt-suggestions/prompt-suggestions';
 
 type ChatContainerProps = {
 	sessionId: string;
-	initialMessages: Message[];
 };
 
-export function ChatContainer({ sessionId, initialMessages }: ChatContainerProps): JSX.Element {
+async function fetchInitialMessages(): Promise<Message[]> {
+	const response = await fetch('/api/initial-messages');
+	if (!response.ok) throw new Error('Failed to fetch messages');
+	return response.json();
+}
+
+export function ChatContainer({ sessionId }: ChatContainerProps) {
+	const { data: initialMessages, isLoading: messagesLoading } = useQuery({
+		queryKey: ['initialMessages'],
+		queryFn: () => fetchInitialMessages(),
+		staleTime: Infinity,
+	});
+
 	const { input, setInput, handleInputChange, handleSubmit, messages, setMessages, isLoading, error } = useChat({
 		body: { sessionId },
 		initialMessages,
 	});
 
-	const [isOpen, setIsOpen] = useState<boolean>(() => !!messages.length);
+	const [isOpen, setIsOpen] = useState<boolean>(true);
 	const [chatError, setChatError] = useState<ChatError | null>(null);
 
 	const lastMessageIsUser = messages[messages.length - 1]?.role === 'user';
@@ -57,13 +70,6 @@ export function ChatContainer({ sessionId, initialMessages }: ChatContainerProps
 
 		if (!isLoading && input.length) {
 			handleSubmit(event, chatRequestOptions);
-		}
-	}
-
-	function handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>): void {
-		if (isOpen && event.key === 'Escape' && !messages.length) {
-			setIsOpen(false);
-			setInput('');
 		}
 	}
 
@@ -115,39 +121,43 @@ export function ChatContainer({ sessionId, initialMessages }: ChatContainerProps
 				)}
 				onSubmit={submitHandler}
 			>
-				<div
-					className={cn(
-						'flex flex-col-reverse flex-grow p-5 rounded-tl-md rounded-tr-md overflow-y-auto !overflow-anchor-auto rounded-none',
-						isOpen ? 'visible border-b border-b-solid' : 'hidden',
-					)}
-					ref={scrollRef}
-				>
-					{!error && messages.length === 0 && isOpen && <ChatPlaceholder />}
+				{messagesLoading ? (
+					<Spinner />
+				) : (
+					<div
+						className={cn(
+							'flex flex-col-reverse flex-grow p-5 rounded-tl-md rounded-tr-md overflow-y-auto !overflow-anchor-auto rounded-none',
+							isOpen ? 'visible border-b border-b-solid' : 'hidden',
+						)}
+						ref={scrollRef}
+					>
+						{!error && messages.length === 0 && isOpen && <ChatPlaceholder />}
 
-					<div>
-						{messages?.map((message: Message, index: number) => <ChatMessage key={index} message={message} />)}
-						{isLoading && lastMessageIsUser && (
-							<ChatMessage
-								message={{
-									id: 'loading',
-									role: 'assistant',
-									content: 'Even geduld a.u.b..',
-								}}
-								isLoading={isLoading && lastMessageIsUser}
-							/>
-						)}
-						{chatError && (
-							<ChatMessage
-								message={{
-									id: 'error',
-									role: 'assistant',
-									content: chatError.message,
-								}}
-								variant='destructive'
-							/>
-						)}
+						<div>
+							{messages?.map((message: Message, index: number) => <ChatMessage key={index} message={message} />)}
+							{isLoading && lastMessageIsUser && (
+								<ChatMessage
+									message={{
+										id: 'loading',
+										role: 'assistant',
+										content: 'Even geduld a.u.b..',
+									}}
+									isLoading={isLoading && lastMessageIsUser}
+								/>
+							)}
+							{chatError && (
+								<ChatMessage
+									message={{
+										id: 'error',
+										role: 'assistant',
+										content: chatError.message,
+									}}
+									variant='destructive'
+								/>
+							)}
+						</div>
 					</div>
-				</div>
+				)}
 
 				<div className={cn('flex items-center px-1 sm:px-2 sm:pl-0 bg-background z-[5]', isOpen ? 'h-auto' : 'h-[60px]')}>
 					<DsButton
@@ -166,7 +176,6 @@ export function ChatContainer({ sessionId, initialMessages }: ChatContainerProps
 						value={input}
 						onChange={handleInputChange}
 						onFocus={() => setIsOpen(true)}
-						onKeyDown={handleKeyDown}
 						className='w-full rounded-b-md px-0 py-4 text-sm outline-none focus:border-primary sm:px-4'
 						type='text'
 						placeholder='Stel me een vraag...'
