@@ -24,7 +24,7 @@ import React from 'react';
 
 import { rtlRender } from '@/testing/test-utils';
 
-import { ChatContainer } from './chat-container';
+import { Chat } from './chat';
 
 jest.mock('@/app/actions/delete-history', () => ({
 	deleteHistory: jest.fn(),
@@ -50,13 +50,13 @@ jest.mock('lucide-react', () => ({
 	Trash: () => <div>Trash</div>,
 }));
 
-describe('ChatContainer', () => {
+describe('Chat', () => {
 	const queryClient = new QueryClient();
 
 	it('should render', () => {
 		rtlRender(
 			<QueryClientProvider client={queryClient}>
-				<ChatContainer sessionId='sessionId' />
+				<Chat sessionId='sessionId' />
 			</QueryClientProvider>,
 		);
 		expect(screen.getByRole('textbox', { name: /chat-input/i })).toBeInTheDocument();
@@ -66,7 +66,7 @@ describe('ChatContainer', () => {
 	// it('should handle input change', () => {
 	// 	rtlRender(
 	// 		<QueryClientProvider client={queryClient}>
-	// 			<ChatContainer sessionId='sessionId' />
+	// 			<Chat sessionId='sessionId' />
 	// 		</QueryClientProvider>,
 	// 	);
 
@@ -80,7 +80,7 @@ describe('ChatContainer', () => {
 	// it('should submit the form when the input field has a value', () => {
 	// 	rtlRender(
 	// 		<QueryClientProvider client={queryClient}>
-	// 			<ChatContainer sessionId='sessionId' />
+	// 			<Chat sessionId='sessionId' />
 	// 		</QueryClientProvider>,
 	// 	);
 
