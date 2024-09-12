@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { ChatRequestOptions, Message } from 'ai';
 import { useChat } from 'ai/react';
 import { Trash } from 'lucide-react';
@@ -28,12 +28,12 @@ async function fetchInitialMessages(): Promise<Message[]> {
 }
 
 export function Chat({ sessionId }: ChatProps) {
+	const queryClient = useQueryClient();
 	const { data: initialMessages, isLoading: messagesLoading } = useQuery({
-		queryKey: ['initialMessages'],
+		queryKey: ['initial-messages'],
 		queryFn: () => fetchInitialMessages(),
 		staleTime: Infinity,
 	});
-
 	const { input, setInput, handleInputChange, handleSubmit, messages, setMessages, isLoading, error } = useChat({
 		body: { sessionId },
 		initialMessages,
@@ -79,6 +79,7 @@ export function Chat({ sessionId }: ChatProps) {
 
 		try {
 			await deleteHistory({ sessionId });
+			await queryClient.invalidateQueries({ queryKey: ['initial-messages'], exact: true });
 		} catch (error) {
 			console.error(error);
 		}
