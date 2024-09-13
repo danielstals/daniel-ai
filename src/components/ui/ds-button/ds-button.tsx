@@ -21,7 +21,7 @@ const styleOptions = cva('flex h-[35px] items-center justify-center rounded-md t
 	},
 });
 
-interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof styleOptions> {
+export interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof styleOptions> {
 	children: React.ReactNode;
 	text?: string;
 	icon?: JSX.Element;

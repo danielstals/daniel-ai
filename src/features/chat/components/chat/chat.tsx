@@ -162,6 +162,7 @@ export function Chat({ sessionId }: ChatProps) {
 
 				<div className={cn('flex items-center px-1 sm:px-2 sm:pl-0 bg-background z-[5]', isOpen ? 'h-auto' : 'h-[60px]')}>
 					<DsButton
+						aria-label='Reset de chat'
 						variant='transparent'
 						type='button'
 						title='Reset de chat'
