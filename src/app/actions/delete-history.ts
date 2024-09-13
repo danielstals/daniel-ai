@@ -7,5 +7,6 @@ export async function deleteHistory({ sessionId }: { sessionId: string }): Promi
 		await ragChat.history.deleteMessages({ sessionId });
 	} catch (error) {
 		console.error(error);
+		throw new Error('Er ging iets mis met het verwijderen van de chat historie. Probeer het opnieuw.');
 	}
 }

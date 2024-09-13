@@ -1,21 +1,21 @@
-import { QueryClient, QueryClientProvider, useQueryClient } from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider, useQuery, UseQueryResult } from '@tanstack/react-query';
 import { fireEvent, screen, waitFor } from '@testing-library/react';
-import { Message, useChat } from 'ai/react';
+import { Message } from 'ai';
+import { useChat } from 'ai/react';
 
-import { deleteHistory } from '@/app/actions/delete-history';
 import { IButtonProps } from '@/components/ui/ds-button/ds-button';
 import { rtlRender } from '@/testing/test-utils';
 
+import { useDeleteHistory } from '../../hooks/use-delete-history/use-delete-history';
+import { ChatMessageProps } from '../chat-message/chat-message';
+
 import { Chat } from './chat';
 
-// Mock external dependencies
+jest.mock('../../hooks/use-delete-history/use-delete-history');
+const mockUseDeleteHistory = useDeleteHistory as jest.MockedFunction<typeof useDeleteHistory>;
+
 jest.mock('ai/react', () => ({
 	useChat: jest.fn(),
-}));
-
-jest.mock('@tanstack/react-query', () => ({
-	...jest.requireActual('@tanstack/react-query'),
-	useQueryClient: jest.fn(),
 }));
 
 jest.mock('@/app/actions/delete-history', () => ({
@@ -31,7 +31,7 @@ jest.mock('@/components/ui/chat-placeholder/chat-placeholder', () => ({
 }));
 
 jest.mock('@/features/chat/components/chat-message/chat-message', () => ({
-	ChatMessage: () => <div>ChatMessage</div>,
+	ChatMessage: ({ message }: ChatMessageProps) => <div>{message.content}</div>,
 }));
 
 jest.mock('@/features/chat/components/prompt-suggestions/prompt-suggestions', () => ({
@@ -42,134 +42,127 @@ jest.mock('lucide-react', () => ({
 	Trash: () => <div>Trash</div>,
 }));
 
-describe('Chat', () => {
-	// Initialise a new instance of React Query's QueryClient.
-	// This queryClient is provided to the QueryClientProvider when rendering the Chat component in tests.
+jest.mock('@tanstack/react-query', () => {
+	const originalModule = jest.requireActual('@tanstack/react-query');
+	return {
+		__esModule: true,
+		...originalModule,
+		useQuery: jest.fn(),
+	};
+});
+
+const mockUseChat = useChat as jest.MockedFunction<typeof useChat>;
+const mockUseQuery = useQuery as jest.MockedFunction<typeof useQuery>;
+
+describe('Chat component', () => {
 	const queryClient = new QueryClient();
 
-	// Mock state and functions provided by useChat hook and useQueryClient.
-	let mockInput = '';
-	let mockSetInput = jest.fn();
-	let mockHandleInputChange = jest.fn();
-	let mockHandleSubmit = jest.fn();
-	let mockMessages: Message[] = [];
-	let mockSetMessages = jest.fn();
-	let mockInvalidateQueries: jest.Mock;
-
-	//  Reset and configure mocks to ensure a consistent starting state before each test case.
 	beforeEach(() => {
-		mockSetInput = jest.fn((value: string) => {
-			mockInput = value;
-		});
-
-		mockHandleInputChange = jest.fn((event: React.ChangeEvent<HTMLInputElement>) => {
-			mockSetInput(event.target.value);
-		});
-
-		mockHandleSubmit = jest.fn();
-		mockSetMessages = jest.fn();
-		mockInvalidateQueries = jest.fn();
-
-		// TS needs to know that these are Jest mock functions to allow us to use mock-specific methods.
-		// We can do this by casting the functions as a jest.Mock.
-
-		// Mock useChat to return controlled values
-		(useChat as jest.Mock).mockImplementation(() => ({
-			input: mockInput,
-			setInput: mockSetInput,
-			handleInputChange: mockHandleInputChange,
-			handleSubmit: mockHandleSubmit,
-			messages: mockMessages,
-			setMessages: mockSetMessages,
-			isLoading: false,
-			error: null,
-		}));
-
-		// Mock useQueryClient to provide invalidateQueries function
-		(useQueryClient as jest.Mock).mockReturnValue({
-			invalidateQueries: mockInvalidateQueries,
-		});
-	});
-
-	// Reset mocks and state between tests
-	afterEach(() => {
 		jest.clearAllMocks();
-		mockInput = '';
-		mockMessages = [];
 	});
 
-	it('should render', () => {
-		rtlRender(
-			<QueryClientProvider client={queryClient}>
-				<Chat sessionId='sessionId' />
-			</QueryClientProvider>,
-		);
-		expect(screen.getByRole('textbox', { name: /chat-input/i })).toBeInTheDocument();
-	});
+	it('should call deleteHistoryMutate when delete button is clicked', async () => {
+		const deleteHistoryMutate = jest.fn();
+		const mockMessages = [
+			{
+				id: '1',
+				role: 'user',
+				content: 'Test message',
+			},
+		];
 
-	it('should handle input change', () => {
-		rtlRender(
-			<QueryClientProvider client={queryClient}>
-				<Chat sessionId='sessionId' />
-			</QueryClientProvider>,
-		);
+		mockUseDeleteHistory.mockReturnValue({
+			mutate: deleteHistoryMutate,
+		} as unknown as ReturnType<typeof useDeleteHistory>);
 
-		const inputElement = screen.getByRole('textbox', { name: /chat-input/i });
-		fireEvent.change(inputElement, { target: { value: 'Hello' } });
+		mockUseChat.mockReturnValue({
+			messages: mockMessages,
+			setMessages: jest.fn(),
+		} as unknown as ReturnType<typeof useChat>);
 
-		expect(mockHandleInputChange).toHaveBeenCalledTimes(1);
-		expect(mockSetInput).toHaveBeenCalledWith('Hello');
-		expect(mockInput).toBe('Hello');
-	});
-
-	it('should submit the form when the input field has a value', () => {
-		mockInput = 'Hello';
+		mockUseQuery.mockReturnValue({
+			data: [],
+		} as unknown as UseQueryResult<Message[], unknown>);
 
 		rtlRender(
 			<QueryClientProvider client={queryClient}>
-				<Chat sessionId='sessionId' />
+				<Chat sessionId='test-session-id' />
 			</QueryClientProvider>,
 		);
 
-		const form = screen.getByRole('form', { name: /chat/i });
-		fireEvent.submit(form);
+		await waitFor(() => expect(mockUseQuery).toHaveBeenCalled());
 
-		expect(mockHandleSubmit).toHaveBeenCalled();
+		const deleteButton = screen.getByRole('button', { name: /reset de chat/i });
+
+		expect(deleteButton).toBeEnabled();
+		fireEvent.click(deleteButton);
+
+		expect(deleteHistoryMutate).toHaveBeenCalled();
+
+		const mockSetMessages = mockUseChat.mock.results[0].value.setMessages;
+		expect(mockSetMessages).toHaveBeenCalledWith([]);
 	});
 
-	it('should delete history when delete button is clicked', async () => {
-		// Set initial messages to simulate existing chat history
-		mockMessages = [
+	it('should render initial messages', async () => {
+		const initialMessages: Message[] = [
 			{ id: '1', role: 'user', content: 'Hello' },
 			{ id: '2', role: 'assistant', content: 'Hi there!' },
 		];
+		mockUseQuery.mockReturnValue({
+			data: initialMessages,
+		} as unknown as UseQueryResult<Message[], unknown>);
 
-		// Mock deleteHistory to resolve immediately.
-		// We simulate a successful call where the Promise resolves without any data.
-		(deleteHistory as jest.Mock).mockResolvedValueOnce(undefined);
+		mockUseChat.mockReturnValue({
+			messages: initialMessages,
+		} as unknown as ReturnType<typeof useChat>);
 
 		rtlRender(
 			<QueryClientProvider client={queryClient}>
-				<Chat sessionId='test-session' />
+				<Chat sessionId='test-session-id' />
 			</QueryClientProvider>,
 		);
 
-		// Find the delete button
-		const deleteButton = screen.getByRole('button', { name: /reset de chat/i });
+		await screen.findByText('Hello');
+		expect(screen.getByText('Hi there!')).toBeInTheDocument();
+	});
 
-		// Simulate clicking the delete button
-		fireEvent.click(deleteButton);
+	it('should display a loading spinner when messages are loading', () => {
+		mockUseQuery.mockReturnValue({
+			data: undefined,
+			isFetching: true,
+		} as unknown as UseQueryResult<Message[], unknown>);
 
-		// Wait for setMessages to be called asynchronously
-		await waitFor(() => {
-			// Assert that setMessages was called with an empty array
-			expect(mockSetMessages).toHaveBeenCalledWith([]);
-		});
+		mockUseChat.mockReturnValue({
+			messages: [],
+		} as unknown as ReturnType<typeof useChat>);
 
-		// Assert that deleteHistory was called with the correct sessionId
-		expect(deleteHistory).toHaveBeenCalledWith({ sessionId: 'test-session' });
+		rtlRender(
+			<QueryClientProvider client={queryClient}>
+				<Chat sessionId='test-session-id' />
+			</QueryClientProvider>,
+		);
 
-		// Assert that invalidateQueries was called
-		expect(mockInvalidateQueries).toHaveBeenCalledWith({ queryKey: ['initial-messages'], exact: true });
+		expect(screen.getByTestId('spinner')).toBeInTheDocument();
+	});
+
+	it('should display an error message when useChat returns an error', () => {
+		const errorMessage = 'An error occurred';
+
+		mockUseQuery.mockReturnValue({
+			isFetching: false,
+		} as unknown as UseQueryResult<Message[], unknown>);
+
+		mockUseChat.mockReturnValue({
+			messages: [],
+			error: new Error(JSON.stringify({ message: errorMessage })),
+		} as unknown as ReturnType<typeof useChat>);
+
+		rtlRender(
+			<QueryClientProvider client={queryClient}>
+				<Chat sessionId='test-session-id' />
+			</QueryClientProvider>,
+		);
+
+		expect(screen.getByText(errorMessage)).toBeInTheDocument();
 	});
 });

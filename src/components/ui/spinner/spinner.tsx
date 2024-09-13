@@ -1,6 +1,6 @@
 export function Spinner() {
 	return (
-		<div className='flex size-full flex-col items-center justify-center'>
+		<div data-testid='spinner' className='flex size-full flex-col items-center justify-center'>
 			<div role='status'>
 				<svg
 					aria-hidden='true'

@@ -1,19 +1,19 @@
 'use client';
 
-import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { ChatRequestOptions, Message } from 'ai';
 import { useChat } from 'ai/react';
 import { Trash } from 'lucide-react';
 import { MouseEvent, useEffect, useRef, useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 
-import { deleteHistory } from '@/app/actions/delete-history';
 import { ChatPlaceholder } from '@/components/ui/chat-placeholder/chat-placeholder';
 import { DsButton } from '@/components/ui/ds-button/ds-button';
 import { Spinner } from '@/components/ui/spinner/spinner';
 import { ChatError } from '@/features/chat/types/chat.types';
 import { cn } from '@/utils/cn';
 
+import { useDeleteHistory } from '../../hooks/use-delete-history/use-delete-history';
 import { ChatMessage } from '../chat-message/chat-message';
 import { PromptSuggestions } from '../prompt-suggestions/prompt-suggestions';
 
@@ -28,10 +28,9 @@ async function fetchInitialMessages(): Promise<Message[]> {
 }
 
 export function Chat({ sessionId }: ChatProps) {
-	const queryClient = useQueryClient();
-	const { data: initialMessages, isLoading: messagesLoading } = useQuery({
+	const { data: initialMessages, isFetching: messagesLoading } = useQuery({
 		queryKey: ['initial-messages'],
-		queryFn: () => fetchInitialMessages(),
+		queryFn: fetchInitialMessages,
 		staleTime: Infinity,
 	});
 	const { input, setInput, handleInputChange, handleSubmit, messages, setMessages, isLoading, error } = useChat({
@@ -39,7 +38,12 @@ export function Chat({ sessionId }: ChatProps) {
 		initialMessages,
 	});
 
-	const [isOpen, setIsOpen] = useState<boolean>(true);
+	const { mutate: deleteHistoryMutate, isPending: isDeleteHistoryPending } = useDeleteHistory({
+		sessionId,
+		onError: deleteHistoryErrorHandler,
+	});
+
+	const [isOpen] = useState<boolean>(true);
 	const [chatError, setChatError] = useState<ChatError | null>(null);
 
 	const lastMessageIsUser = messages[messages.length - 1]?.role === 'user';
@@ -50,10 +54,6 @@ export function Chat({ sessionId }: ChatProps) {
 	function setSuggestedPromptHandler(suggestedPrompt: string): void {
 		setInput(suggestedPrompt);
 		inputRef.current?.focus();
-
-		if (!isOpen) {
-			setIsOpen(true);
-		}
 	}
 
 	function submitHandler(
@@ -64,33 +64,22 @@ export function Chat({ sessionId }: ChatProps) {
 	): void {
 		event?.preventDefault?.();
 
-		if (!isOpen && input.length) {
-			setIsOpen(true);
-		}
-
 		if (!isLoading && input.length) {
 			handleSubmit(event, chatRequestOptions);
 		}
 	}
 
-	async function deleteHistoryHandler(e: MouseEvent): Promise<void> {
+	function deleteHistoryHandler(e: MouseEvent): void {
 		e.preventDefault();
+		deleteHistoryMutate();
 		setMessages([]);
-
-		try {
-			await deleteHistory({ sessionId });
-			await queryClient.invalidateQueries({ queryKey: ['initial-messages'], exact: true });
-		} catch (error) {
-			console.error(error);
-		}
 	}
 
-	useEffect(() => {
-		if (!isOpen && input.length) {
-			setIsOpen(true);
+	function deleteHistoryErrorHandler(): void {
+		if (initialMessages) {
+			setMessages(initialMessages);
 		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [input]);
+	}
 
 	useEffect(() => {
 		if (error) {
@@ -122,7 +111,7 @@ export function Chat({ sessionId }: ChatProps) {
 				)}
 				onSubmit={submitHandler}
 			>
-				{messagesLoading ? (
+				{messagesLoading && !messages?.length ? (
 					<Spinner />
 				) : (
 					<div
@@ -168,7 +157,7 @@ export function Chat({ sessionId }: ChatProps) {
 						title='Reset de chat'
 						className='h-auto items-center justify-center hover:text-primary max-sm:px-2'
 						onClick={deleteHistoryHandler}
-						disabled={!messages.length || isLoading}
+						disabled={!messages.length || messagesLoading || isDeleteHistoryPending}
 					>
 						<Trash size={18} />
 					</DsButton>
@@ -177,7 +166,6 @@ export function Chat({ sessionId }: ChatProps) {
 						data-testid='chat-input'
 						value={input}
 						onChange={handleInputChange}
-						onFocus={() => setIsOpen(true)}
 						className='w-full rounded-b-md px-0 py-4 text-sm outline-none focus:border-primary sm:px-4'
 						type='text'
 						placeholder='Stel me een vraag...'
