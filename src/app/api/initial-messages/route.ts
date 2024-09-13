@@ -15,6 +15,6 @@ export async function GET() {
 		return NextResponse.json(messages);
 	} catch (error) {
 		console.error('Error fetching initial messages:', error);
-		return NextResponse.json({ error: 'Failed to fetch messages' }, { status: 500 });
+		return NextResponse.json({ error: 'Er ging iets mis met het ophalen van je chathistorie' }, { status: 500 });
 	}
 }
