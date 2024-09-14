@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider, UseMutationResult, useQuery, UseQuery
 import { Message, useChat } from 'ai/react';
 
 import { IButtonProps } from '@/components/ui/ds-button/ds-button';
-import { fireEvent, RenderResult, rtlRender, screen, waitFor } from '@/testing/test-utils';
+import { fireEvent, rtlRender, screen, waitFor } from '@/testing/test-utils';
 
 import { useDeleteHistory } from '../../hooks/use-delete-history/use-delete-history';
 import { ChatMessageProps } from '../chat-message/chat-message';
@@ -56,15 +56,12 @@ describe('Chat component', () => {
 	const queryClient = new QueryClient();
 	const deleteHistoryMutate = jest.fn();
 
-	function getElement(): JSX.Element {
-		return (
+	function renderChat(): ReturnType<typeof rtlRender> {
+		return rtlRender(
 			<QueryClientProvider client={queryClient}>
 				<Chat sessionId='test-session-id' />
-			</QueryClientProvider>
+			</QueryClientProvider>,
 		);
-	}
-	function renderChat(): RenderResult {
-		return rtlRender(getElement());
 	}
 
 	beforeEach(() => {
@@ -99,14 +96,11 @@ describe('Chat component', () => {
 
 		await waitFor(() => expect(mockUseQuery).toHaveBeenCalled());
 
-		const deleteButton = screen.getByRole('button', { name: /reset de chat/i });
-
-		fireEvent.click(deleteButton);
+		fireEvent.click(screen.getByRole('button', { name: /reset de chat/i }));
 
 		await waitFor(() => expect(deleteHistoryMutate).toHaveBeenCalled());
 
-		const mockSetMessages = mockUseChat.mock.results[0].value.setMessages;
-		expect(mockSetMessages).toHaveBeenCalledWith([]);
+		expect(mockUseChat.mock.results[0].value.setMessages).toHaveBeenCalledWith([]);
 	});
 
 	it('should render initial messages', async () => {

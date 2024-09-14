@@ -7,13 +7,19 @@ jest.mock('../mode-toggle/mode-toggle', () => ({
 }));
 
 describe('Header', () => {
+	function renderHeader(): ReturnType<typeof rtlRender> {
+		return rtlRender(<Header title='Test title' />);
+	}
+
 	it('should render correctly', () => {
-		rtlRender(<Header title='Test title' />);
+		renderHeader();
+
 		expect(screen.getByRole('heading')).toHaveTextContent('Test title');
 	});
 
 	it('should render the ModeToggle component', () => {
-		rtlRender(<Header title='Test title' />);
+		renderHeader();
+
 		expect(screen.getByText('ModeToggle')).toBeInTheDocument();
 	});
 });
