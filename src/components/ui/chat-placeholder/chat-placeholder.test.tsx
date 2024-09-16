@@ -4,22 +4,19 @@ import { rtlRender, screen } from '@/testing/test-utils';
 import { ChatPlaceholder } from './chat-placeholder';
 
 describe('ChatPlaceholder', () => {
-	it('should render the image correctly', () => {
-		rtlRender(<ChatPlaceholder />);
+	function renderChatPlaceholder(): ReturnType<typeof rtlRender> {
+		return rtlRender(<ChatPlaceholder />);
+	}
 
-		const imageElement = screen.getByRole('img');
-		expect(imageElement).toBeInTheDocument();
+	it('should render the image correctly', () => {
+		renderChatPlaceholder();
+
+		expect(screen.getByRole('img')).toBeInTheDocument();
 	});
 
 	it('should render the LinkedIn link with the correct URL', () => {
-		// Render the component
-		rtlRender(<ChatPlaceholder />);
+		renderChatPlaceholder();
 
-		// Check if the mocked component is used
-		const linkElement = screen.getByTestId('link-mock');
-		expect(linkElement).toBeInTheDocument();
-
-		// Check if the link has the correct href
-		expect(linkElement).toHaveAttribute('href', LINKEDIN_URL);
+		expect(screen.getByTestId('link-mock')).toHaveAttribute('href', LINKEDIN_URL);
 	});
 });

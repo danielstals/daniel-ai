@@ -3,27 +3,26 @@ import { rtlRender, screen } from '@/testing/test-utils';
 import { PromptButton } from './prompt-button';
 
 describe('PromptButton', () => {
+	function renderPromptButton(props: Parameters<typeof PromptButton>[0]): ReturnType<typeof rtlRender> {
+		return rtlRender(<PromptButton {...props} />);
+	}
+
 	test('renders button with text and icon', () => {
-		rtlRender(<PromptButton text='Click me' icon={<span>Icon</span>} />);
+		renderPromptButton({ text: 'Click me', icon: <span>Icon</span> });
 
-		const buttonElement = screen.getByText('Click me');
-		const iconElement = screen.getByText('Icon');
-
-		expect(buttonElement).toBeInTheDocument();
-		expect(iconElement).toBeInTheDocument();
+		expect(screen.getByText('Click me')).toBeInTheDocument();
+		expect(screen.getByText('Icon')).toBeInTheDocument();
 	});
 
 	it('should get the right class name when variant is primary', () => {
-		rtlRender(<PromptButton variant='primary' text='Click me' icon={<span>Icon</span>} />);
-		const buttonElement = screen.getByRole('button');
+		renderPromptButton({ text: 'Click me', icon: <span>Icon</span>, variant: 'primary' });
 
-		expect(buttonElement).toHaveClass('bg-background');
+		expect(screen.getByRole('button')).toHaveClass('bg-background');
 	});
 
 	it('should be disabled when isDisabled is true', () => {
-		rtlRender(<PromptButton isDisabled text='Click me' icon={<span>Icon</span>} />);
-		const buttonElement = screen.getByRole('button');
+		renderPromptButton({ text: 'Click me', icon: <span>Icon</span>, isDisabled: true });
 
-		expect(buttonElement).toBeDisabled();
+		expect(screen.getByRole('button')).toBeDisabled();
 	});
 });

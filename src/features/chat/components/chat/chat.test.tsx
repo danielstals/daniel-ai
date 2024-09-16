@@ -1,10 +1,8 @@
-import { QueryClient, QueryClientProvider, useQuery, UseQueryResult } from '@tanstack/react-query';
-import { fireEvent, screen, waitFor } from '@testing-library/react';
-import { Message } from 'ai';
-import { useChat } from 'ai/react';
+import { QueryClient, QueryClientProvider, UseMutationResult, useQuery, UseQueryResult } from '@tanstack/react-query';
+import { Message, useChat } from 'ai/react';
 
 import { IButtonProps } from '@/components/ui/ds-button/ds-button';
-import { rtlRender } from '@/testing/test-utils';
+import { fireEvent, rtlRender, screen, waitFor } from '@/testing/test-utils';
 
 import { useDeleteHistory } from '../../hooks/use-delete-history/use-delete-history';
 import { ChatMessageProps } from '../chat-message/chat-message';
@@ -12,7 +10,6 @@ import { ChatMessageProps } from '../chat-message/chat-message';
 import { Chat } from './chat';
 
 jest.mock('../../hooks/use-delete-history/use-delete-history');
-const mockUseDeleteHistory = useDeleteHistory as jest.MockedFunction<typeof useDeleteHistory>;
 
 jest.mock('ai/react', () => ({
 	useChat: jest.fn(),
@@ -51,18 +48,33 @@ jest.mock('@tanstack/react-query', () => {
 	};
 });
 
-const mockUseChat = useChat as jest.MockedFunction<typeof useChat>;
-const mockUseQuery = useQuery as jest.MockedFunction<typeof useQuery>;
+const mockUseChat = useChat as jest.Mock<Partial<ReturnType<typeof useChat>>>;
+const mockUseQuery = useQuery as jest.Mock<Partial<UseQueryResult>>;
+const mockUseDeleteHistory = useDeleteHistory as jest.Mock<Partial<UseMutationResult>>;
 
 describe('Chat component', () => {
 	const queryClient = new QueryClient();
+	const deleteHistoryMutate = jest.fn();
+
+	function renderChat(): ReturnType<typeof rtlRender> {
+		return rtlRender(
+			<QueryClientProvider client={queryClient}>
+				<Chat sessionId='test-session-id' />
+			</QueryClientProvider>,
+		);
+	}
 
 	beforeEach(() => {
+		mockUseDeleteHistory.mockReturnValue({
+			mutate: deleteHistoryMutate,
+		} as Partial<UseMutationResult>);
+	});
+
+	afterEach(() => {
 		jest.clearAllMocks();
 	});
 
 	it('should call deleteHistoryMutate when delete button is clicked', async () => {
-		const deleteHistoryMutate = jest.fn();
 		const mockMessages = [
 			{
 				id: '1',
@@ -71,36 +83,24 @@ describe('Chat component', () => {
 			},
 		];
 
-		mockUseDeleteHistory.mockReturnValue({
-			mutate: deleteHistoryMutate,
-		} as unknown as ReturnType<typeof useDeleteHistory>);
-
 		mockUseChat.mockReturnValue({
 			messages: mockMessages,
 			setMessages: jest.fn(),
-		} as unknown as ReturnType<typeof useChat>);
+		} as Partial<ReturnType<typeof useChat>>);
 
 		mockUseQuery.mockReturnValue({
 			data: [],
-		} as unknown as UseQueryResult<Message[], unknown>);
+		} as Partial<UseQueryResult>);
 
-		rtlRender(
-			<QueryClientProvider client={queryClient}>
-				<Chat sessionId='test-session-id' />
-			</QueryClientProvider>,
-		);
+		renderChat();
 
 		await waitFor(() => expect(mockUseQuery).toHaveBeenCalled());
 
-		const deleteButton = screen.getByRole('button', { name: /reset de chat/i });
+		fireEvent.click(screen.getByRole('button', { name: /reset de chat/i }));
 
-		expect(deleteButton).toBeEnabled();
-		fireEvent.click(deleteButton);
+		await waitFor(() => expect(deleteHistoryMutate).toHaveBeenCalled());
 
-		expect(deleteHistoryMutate).toHaveBeenCalled();
-
-		const mockSetMessages = mockUseChat.mock.results[0].value.setMessages;
-		expect(mockSetMessages).toHaveBeenCalledWith([]);
+		expect(mockUseChat.mock.results[0].value.setMessages).toHaveBeenCalledWith([]);
 	});
 
 	it('should render initial messages', async () => {
@@ -110,19 +110,15 @@ describe('Chat component', () => {
 		];
 		mockUseQuery.mockReturnValue({
 			data: initialMessages,
-		} as unknown as UseQueryResult<Message[], unknown>);
+		} as Partial<UseQueryResult>);
 
 		mockUseChat.mockReturnValue({
 			messages: initialMessages,
 		} as unknown as ReturnType<typeof useChat>);
 
-		rtlRender(
-			<QueryClientProvider client={queryClient}>
-				<Chat sessionId='test-session-id' />
-			</QueryClientProvider>,
-		);
+		renderChat();
 
-		await screen.findByText('Hello');
+		expect(screen.getByText('Hello')).toBeInTheDocument();
 		expect(screen.getByText('Hi there!')).toBeInTheDocument();
 	});
 
@@ -130,17 +126,13 @@ describe('Chat component', () => {
 		mockUseQuery.mockReturnValue({
 			data: undefined,
 			isFetching: true,
-		} as unknown as UseQueryResult<Message[], unknown>);
+		} as Partial<UseQueryResult>);
 
 		mockUseChat.mockReturnValue({
 			messages: [],
 		} as unknown as ReturnType<typeof useChat>);
 
-		rtlRender(
-			<QueryClientProvider client={queryClient}>
-				<Chat sessionId='test-session-id' />
-			</QueryClientProvider>,
-		);
+		renderChat();
 
 		expect(screen.getByTestId('spinner')).toBeInTheDocument();
 	});
@@ -150,18 +142,14 @@ describe('Chat component', () => {
 
 		mockUseQuery.mockReturnValue({
 			isFetching: false,
-		} as unknown as UseQueryResult<Message[], unknown>);
+		} as Partial<UseQueryResult>);
 
 		mockUseChat.mockReturnValue({
 			messages: [],
 			error: new Error(JSON.stringify({ message: errorMessage })),
-		} as unknown as ReturnType<typeof useChat>);
+		} as Partial<ReturnType<typeof useChat>>);
 
-		rtlRender(
-			<QueryClientProvider client={queryClient}>
-				<Chat sessionId='test-session-id' />
-			</QueryClientProvider>,
-		);
+		renderChat();
 
 		expect(screen.getByText(errorMessage)).toBeInTheDocument();
 	});
