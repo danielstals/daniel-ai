@@ -42,6 +42,8 @@ updates:
       - 'danielstals'
     reviewers:
       - 'danielstals'
+    ignore:
+      - dependency-name: '@upstash/rag-chat'
     groups:
       breaking-security-updates:
         applies-to: security-updates
