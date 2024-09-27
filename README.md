@@ -1,4 +1,4 @@
-# Daniel.ai
+# Daniel ai
 
 This repository contains the source code for an AI chatbot built with [Next.js](https://nextjs.org/) and hosted on [Vercel](https://vercel.com/). This project is intended to showcase the code and architecture of the chatbot and is **not designed to be run locally by others**.
 
