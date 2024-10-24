@@ -1,13 +1,21 @@
-import { defineConfig, devices } from '@playwright/test';
-
-const PORT = 3000;
-
+/* eslint-disable import/order */
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// import dotenv from 'dotenv';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
+import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+dotenv.config({ path: path.resolve(__dirname, '.env') });
+
+import { defineConfig, devices } from '@playwright/test';
+
+const PORT = process.env.PORT || 3000;
+const baseURL = `http://localhost:${PORT}`;
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -24,13 +32,24 @@ export default defineConfig({
 	workers: process.env.CI ? 1 : undefined,
 	/* Reporter to use. See https://playwright.dev/docs/test-reporters */
 	reporter: 'html',
-	/* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
-	use: {
-		/* Base URL to use in actions like `await page.goto('/')`. */
-		baseURL: `http://127.0.0.1:${PORT}`,
+	// Artifacts folder where screenshots, videos, and traces are stored.
+	outputDir: 'test-results/',
+	// Run your local dev server before starting the tests:
+	// https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests
+	webServer: {
+		command: `pnpm dev --port ${PORT}`,
+		url: baseURL,
+		timeout: 20 * 1000,
+		reuseExistingServer: !process.env.CI, // reuse server to speed up tests
+	},
 
-		/* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-		trace: 'off',
+	use: {
+		// Use baseURL so to make navigations relative.
+		baseURL,
+
+		// Retry a test if its failing with enabled tracing. This allows you to analyze the DOM, console logs, network traffic etc.
+		// More information: https://playwright.dev/docs/trace-viewer
+		trace: 'retry-with-trace',
 		timezoneId: 'Europe/Amsterdam',
 	},
 
@@ -46,12 +65,4 @@ export default defineConfig({
 			dependencies: ['setup'],
 		},
 	],
-
-	/* Run your local dev server before starting the tests */
-	webServer: {
-		command: `pnpm start --port ${PORT}`,
-		url: `http://127.0.0.1:${PORT}`,
-		timeout: 20 * 1000,
-		reuseExistingServer: !process.env.CI, // reuse server to speed up tests
-	},
 });

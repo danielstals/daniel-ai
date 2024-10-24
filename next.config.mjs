@@ -3,7 +3,6 @@ import withBundleAnalyzer from '@next/bundle-analyzer';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	reactStrictMode: true,
-	serverExternalPackages: ['onnxruntime-node', '@xenova/transformers', 'llamaindex'],
 	webpack: (config) => {
 		config.resolve.alias.canvas = false;
 
