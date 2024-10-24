@@ -175,6 +175,7 @@ export function Chat({ sessionId }: ChatProps) {
 					<DsButton
 						type='submit'
 						title='Stuur je vraag'
+						data-testid='submit-prompt'
 						disabled={!input || isLoading}
 						className='items-center justify-center max-sm:bg-transparent max-sm:px-2 sm:ml-3'
 					>

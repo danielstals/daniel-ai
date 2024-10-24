@@ -29,7 +29,10 @@ export function ChatMessage({ message: { role, content }, variant, className }: 
 	const isAiMessage = role === 'assistant';
 
 	return (
-		<div className={cn(isAiMessage ? 'justify-start' : 'justify-end', 'mb-3 translate-z-0', chatMessageVariants({ className }))}>
+		<div
+			data-testid={isAiMessage ? 'chat-message-assistant' : 'chat-message-user'}
+			className={cn(isAiMessage ? 'justify-start' : 'justify-end', 'mb-3 translate-z-0', chatMessageVariants({ className }))}
+		>
 			{isAiMessage && (
 				<Image
 					alt={CHAT_AVATAR_IMG_ALT}
