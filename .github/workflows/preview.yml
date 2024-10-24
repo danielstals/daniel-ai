@@ -20,6 +20,9 @@ on:
   push:
     branches:
       - preview
+  pull_request:
+    branches:
+      - preview
 
 jobs:
   lint:
@@ -77,6 +80,7 @@ jobs:
 
   deploy_preview:
     needs: [lint, unit_tests, e2e_tests]
+    if: github.event_name == 'push' # Only run on push events, not PRs
     name: Deploy to Preview
     runs-on: macos-latest
     environment: Preview

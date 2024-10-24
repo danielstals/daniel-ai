@@ -20,6 +20,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   lint:
@@ -77,6 +80,7 @@ jobs:
 
   deploy_production:
     needs: [lint, unit_tests, e2e_tests]
+    if: github.event_name == 'push' # Only run on push events, not PRs
     name: Deploy to Production
     runs-on: ubuntu-latest
     environment: Production
