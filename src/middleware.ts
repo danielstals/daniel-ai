@@ -9,10 +9,11 @@ const ratelimit = new Ratelimit({
 	limiter: Ratelimit.fixedWindow(10, '10 s'),
 	ephemeralCache: new Map(),
 	prefix: 'ip-ratelimit',
-	analytics: true,
+	analytics: false,
 	enableProtection: true,
 });
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function middleware(req: NextRequest, context: NextFetchEvent) {
 	const url = req.nextUrl.clone();
 	const isUnderConstruction = process.env.NEXT_PUBLIC_UNDER_CONSTRUCTION === 'true';
@@ -36,10 +37,11 @@ export async function middleware(req: NextRequest, context: NextFetchEvent) {
 		const ip = req.ip || '127.0.0.1';
 
 		try {
+			// eslint-disable-next-line @typescript-eslint/no-unused-vars
 			const { success, pending, limit, remaining } = await ratelimit.limit(ip);
 			// we use context.waitUntil since analytics: true.
 			// see https://upstash.com/docs/oss/sdks/ts/ratelimit/gettingstarted#serverless-environments
-			context.waitUntil(pending);
+			// context.waitUntil(pending);
 
 			if (!success) {
 				return NextResponse.json({ error: 'Too many requests. Please try again later.' }, { status: 429 });
