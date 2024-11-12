@@ -16,7 +16,8 @@ const ratelimit = new Ratelimit({
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function middleware(req: NextRequest, context: NextFetchEvent) {
 	const url = req.nextUrl.clone();
-	const isUnderConstruction = process.env.NEXT_PUBLIC_UNDER_CONSTRUCTION === 'true';
+	// const isUnderConstruction = process.env.NEXT_PUBLIC_UNDER_CONSTRUCTION === 'true';
+	const isUnderConstruction = true;
 	let res;
 
 	// Check if the site is under construction
