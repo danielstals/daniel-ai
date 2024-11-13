@@ -13,15 +13,13 @@ const ratelimit = new Ratelimit({
 	enableProtection: true,
 });
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export async function middleware(req: NextRequest, context: NextFetchEvent) {
-	const url = req.nextUrl.clone();
-	// const isUnderConstruction = process.env.NEXT_PUBLIC_UNDER_CONSTRUCTION === 'true';
-	const isUnderConstruction = true;
-	let res;
+// Helper: Check if the site is under construction
+const isUnderConstruction = () => process.env.NEXT_PUBLIC_UNDER_CONSTRUCTION === 'true';
 
-	// Check if the site is under construction
-	if (isUnderConstruction) {
+// Helper: Handle under-construction redirection
+const handleUnderConstructionRedirect = (req: NextRequest): NextResponse | null => {
+	const url = req.nextUrl.clone();
+	if (isUnderConstruction()) {
 		if (
 			url.pathname !== '/under-construction' &&
 			!url.pathname.startsWith('/api') &&
@@ -29,54 +27,62 @@ export async function middleware(req: NextRequest, context: NextFetchEvent) {
 			!url.pathname.startsWith('/_next')
 		) {
 			url.pathname = '/under-construction';
-			return NextResponse.redirect(url); // Stop further execution
+			return NextResponse.redirect(url);
 		}
+	} else if (!isUnderConstruction() && url.pathname === '/under-construction') {
+		url.pathname = '/';
+		return NextResponse.redirect(url);
 	}
+	return null;
+};
 
-	// Handle rate limiting for API routes
-	if (url.pathname.startsWith('/api')) {
-		const ip = req.ip || '127.0.0.1';
-
+// Helper: Handle rate limiting
+const handleRateLimiting = async (req: NextRequest): Promise<NextResponse | null> => {
+	if (req.nextUrl.pathname.startsWith('/api')) {
+		const ip = req.ip || req.headers.get('x-forwarded-for') || '127.0.0.1';
 		try {
-			// eslint-disable-next-line @typescript-eslint/no-unused-vars
-			const { success, pending, limit, remaining } = await ratelimit.limit(ip);
-			// we use context.waitUntil since analytics: true.
-			// see https://upstash.com/docs/oss/sdks/ts/ratelimit/gettingstarted#serverless-environments
-			// context.waitUntil(pending);
+			const { success, limit, remaining } = await ratelimit.limit(ip);
 
 			if (!success) {
 				return NextResponse.json({ error: 'Too many requests. Please try again later.' }, { status: 429 });
 			}
 
-			// Successful request, proceed normally
-			res = NextResponse.next();
-
-			// Set rate limiting headers
-			res.headers.set('X-RateLimit-Success', success.toString());
+			const res = NextResponse.next();
 			res.headers.set('X-RateLimit-Limit', limit.toString());
 			res.headers.set('X-RateLimit-Remaining', remaining.toString());
+			return res;
 		} catch (error) {
 			console.error('Rate limiting failed:', error);
 			return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
 		}
-	} else {
-		// Non-API routes proceed without rate limiting
-		res = NextResponse.next();
 	}
+	return null;
+};
 
-	// Ensure the sessionId cookie is set for all routes
-	const cookie = req.cookies.get('sessionId');
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export async function middleware(req: NextRequest, context: NextFetchEvent) {
+	let response;
 
-	if (!cookie) {
-		const sessionId = crypto.randomUUID();
+	// Handle under construction logic
+	response = handleUnderConstructionRedirect(req);
+	if (response) return response;
 
-		res.cookies.set('sessionId', sessionId, {
+	// Handle rate limiting
+	response = await handleRateLimiting(req);
+	if (response) return response;
+
+	// Ensure sessionId cookie
+	const res = NextResponse.next();
+	const sessionId = req.cookies.get('sessionId');
+	if (!sessionId) {
+		res.cookies.set('sessionId', crypto.randomUUID(), {
 			httpOnly: true,
 			secure: process.env.NODE_ENV === 'production',
 			sameSite: 'strict',
 			path: '/',
 		});
 	}
+
 	return res;
 }
 
