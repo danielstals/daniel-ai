@@ -39,7 +39,7 @@ const handleUnderConstructionRedirect = (req: NextRequest): NextResponse | null 
 // Helper: Handle rate limiting
 const handleRateLimiting = async (req: NextRequest): Promise<NextResponse | null> => {
 	if (req.nextUrl.pathname.startsWith('/api')) {
-		const ip = req.ip || req.headers.get('x-forwarded-for') || '127.0.0.1';
+		const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || req.headers.get('x-real-ip') || '127.0.0.1';
 		try {
 			const { success, limit, remaining } = await ratelimit.limit(ip);
 

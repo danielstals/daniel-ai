@@ -4,7 +4,7 @@ import getSessionId from '@/app/actions/get-session-id';
 import { ragChat } from '@/lib/ai/rag-chat';
 
 export async function GET() {
-	const sessionId = getSessionId();
+	const sessionId = await getSessionId();
 
 	if (!sessionId) {
 		return NextResponse.json({ error: 'Session ID is required' }, { status: 400 });

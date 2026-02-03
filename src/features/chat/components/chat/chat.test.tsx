@@ -86,7 +86,7 @@ describe('Chat component', () => {
 		mockUseChat.mockReturnValue({
 			messages: mockMessages,
 			setMessages: jest.fn(),
-		} as Partial<ReturnType<typeof useChat>>);
+		} as unknown as ReturnType<typeof useChat>);
 
 		mockUseQuery.mockReturnValue({
 			data: [],
@@ -147,7 +147,7 @@ describe('Chat component', () => {
 		mockUseChat.mockReturnValue({
 			messages: [],
 			error: new Error(JSON.stringify({ message: errorMessage })),
-		} as Partial<ReturnType<typeof useChat>>);
+		} as unknown as ReturnType<typeof useChat>);
 
 		renderChat();
 
