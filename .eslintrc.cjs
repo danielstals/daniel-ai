@@ -5,7 +5,7 @@ module.exports = {
 		es6: true,
 	},
 	parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-	ignorePatterns: ['node_modules/*', 'public/mockServiceWorker.js', 'generators/*'],
+	ignorePatterns: ['node_modules/*', 'public/mockServiceWorker.js', 'generators/*', 'playwright-report/*', '.next/*', 'out/*', 'next-env.d.ts'],
 	extends: ['eslint:recommended', 'next/core-web-vitals'],
 	overrides: [
 		{

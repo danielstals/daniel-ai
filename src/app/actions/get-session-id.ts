@@ -2,11 +2,12 @@
 
 import { cookies, headers } from 'next/headers';
 
-function getSessionId(): string {
+async function getSessionId(): Promise<string> {
 	// Get the list of headers and cookies
-	const headerList = headers();
+	const headerList = await headers();
 	const setCookieHeader = headerList.get('set-cookie');
-	const cookie = cookies().get('sessionId');
+	const cookieStore = await cookies();
+	const cookie = cookieStore.get('sessionId');
 
 	// If the sessionId is present in the cookies, return it
 	if (cookie?.value) return cookie.value;

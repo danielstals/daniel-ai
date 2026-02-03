@@ -5,7 +5,7 @@ import getSessionId from './actions/get-session-id';
 
 export default async function Home() {
 	// Retrieve sessionId either from cookies or Set-Cookie header
-	const sessionId = getSessionId();
+	const sessionId = await getSessionId();
 
 	return (
 		<div className='flex w-full max-w-[800px] grow flex-col self-center pt-[20px] max-sm:overflow-y-hidden'>
