@@ -1,6 +1,6 @@
 'use client';
 
-import { Message } from 'ai/react';
+import { Message } from '@ai-sdk/react';
 import { cva, VariantProps } from 'class-variance-authority';
 import Image from 'next/image';
 import Link from 'next/link';

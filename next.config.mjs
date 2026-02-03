@@ -8,6 +8,7 @@ const nextConfig = {
 
 		return config;
 	},
+	turbopack: {},
 };
 
 const bundleAnalyzer = withBundleAnalyzer({

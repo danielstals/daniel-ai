@@ -1,4 +1,4 @@
-import { Message } from 'ai/react';
+import { Message } from '@ai-sdk/react';
 
 import { CHAT_AVATAR_IMG_ALT } from '@/lib/constants/constants';
 import { rtlRender, screen } from '@/testing/test-utils';

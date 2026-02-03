@@ -1,8 +1,8 @@
 'use client';
 
+import { Message, useChat } from '@ai-sdk/react';
 import { useQuery } from '@tanstack/react-query';
-import { ChatRequestOptions, Message } from 'ai';
-import { useChat } from 'ai/react';
+import { ChatRequestOptions } from 'ai';
 import { Trash } from 'lucide-react';
 import { MouseEvent, useEffect, useRef, useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
