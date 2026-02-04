@@ -1,4 +1,4 @@
-import { Message } from 'ai';
+import { Message } from '@ai-sdk/react';
 
 export const MOCK_INITIAL_MESSAGES: Message[] = [
 	{

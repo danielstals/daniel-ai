@@ -1,5 +1,5 @@
+import { Message, useChat } from '@ai-sdk/react';
 import { QueryClient, QueryClientProvider, UseMutationResult, useQuery, UseQueryResult } from '@tanstack/react-query';
-import { Message, useChat } from 'ai/react';
 
 import { IButtonProps } from '@/components/ui/ds-button/ds-button';
 import { fireEvent, rtlRender, screen, waitFor } from '@/testing/test-utils';
@@ -11,7 +11,7 @@ import { Chat } from './chat';
 
 jest.mock('../../hooks/use-delete-history/use-delete-history');
 
-jest.mock('ai/react', () => ({
+jest.mock('@ai-sdk/react', () => ({
 	useChat: jest.fn(),
 }));
 
