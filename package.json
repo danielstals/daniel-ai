@@ -44,7 +44,7 @@
 		"embla-carousel-react": "^8.2.1",
 		"langchain": "^0.3.15",
 		"lucide-react": "^0.428.0",
-		"next": "15.5.11",
+		"next": "15.5.12",
 		"next-themes": "^0.3.0",
 		"openai": "^4.85.0",
 		"react": "^18",
@@ -71,7 +71,7 @@
 		"@typescript-eslint/parser": "^8.5.0",
 		"dotenv": "^16.4.5",
 		"eslint": "^8.57.0",
-		"eslint-config-next": "15.5.11",
+		"eslint-config-next": "15.5.12",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-import-resolver-typescript": "^3.6.3",
 		"eslint-plugin-check-file": "^2.8.0",
@@ -98,5 +98,14 @@
 		"tsx": "^4.19.1",
 		"typescript": "^5.5.4"
 	},
-	"packageManager": "pnpm@9.1.0+sha512.67f5879916a9293e5cf059c23853d571beaf4f753c707f40cb22bed5fb1578c6aad3b6c4107ccb3ba0b35be003eb621a16471ac836c87beb53f9d54bb4612724"
+	"packageManager": "pnpm@9.1.0+sha512.67f5879916a9293e5cf059c23853d571beaf4f753c707f40cb22bed5fb1578c6aad3b6c4107ccb3ba0b35be003eb621a16471ac836c87beb53f9d54bb4612724",
+	"pnpm": {
+		"overrides": {
+			"brace-expansion@<1.1.12": "1.1.12",
+			"diff@<4.0.4": "4.0.4",
+			"fast-xml-parser@<4.5.3": "4.5.3",
+			"undici@<6.21.1": "6.21.1",
+			"qs@<6.13.0": "6.13.0"
+		}
+	}
 }
