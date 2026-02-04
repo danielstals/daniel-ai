@@ -31,7 +31,7 @@ jobs:
     name: Run Linter
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Install pnpm
         uses: ./.github/actions/pnpm-install
@@ -43,7 +43,7 @@ jobs:
     name: Run Jest Tests
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Install pnpm
         uses: ./.github/actions/pnpm-install
@@ -57,7 +57,7 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Install pnpm
         uses: ./.github/actions/pnpm-install
@@ -87,7 +87,7 @@ jobs:
     runs-on: macos-latest
     environment: Preview
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Install pnpm
         uses: ./.github/actions/pnpm-install
